@@ -24,46 +24,52 @@
       </div><!-- /.container -->
     </div><!-- /.top-info-bar -->
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html"><img src="/images/logo.png" alt="Site Logo" /></a>
-        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="/images/logo.png" alt="Site Logo" /></a>
 
         <!-- Collect the nav links and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="ml15"><a class="button alt" href="price-table.html">Reserve Your Seat</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="current"><a href="index.html">Home</a></li>
-            <li><a href="speakers.html">Speakers</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="sponsors.html">Sponsors</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="about.html">About</a></li>
-                <li><a href="accommodation.html">Accommodation</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="price-table.html">Price Table</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="blog-single.html">Blog Single</a></li>
-                <li><a href="404.html">404 Error</a></li>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link button alt" href="price-table.html">Reserve Your Seat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="speakers.html">Speakers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="schedule.html">Schedule</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sponsors.html">Sponsors</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+              <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                <li><a class="dropdown-item" href="about.html">About</a></li>
+                <li><a class="dropdown-item" href="accommodation.html">Accommodation</a></li>
+                <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                <li><a class="dropdown-item" href="price-table.html">Price Table</a></li>
+                <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
+                <li><a class="dropdown-item" href="404.html">404 Error</a></li>
               </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
     </nav>
+
   </div><!-- /.navigation-area -->
 
   <div class="header-area" id="home-header">
@@ -83,22 +89,22 @@
         </div>
       </div>
     </div>
-    <div class="header-slide header-slide-2">
-      <div class="overlay">
-        <div class="container text-center">
-          <div class="row">
-            <div class="col-md-12">
-              <h3>14 - 26 december 2016 , <span>New York</span></h3>
-              <h1><small>Designer Community</small>Meetup</h1>
-              <ul class="buttons">
-                <li><a href="#" class="line-button">REGister Now</a></li>
-                <li><a href="#" class="line-button">Learn More</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!--    <div class="header-slide header-slide-2">-->
+<!--      <div class="overlay">-->
+<!--        <div class="container text-center">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--              <h3>14 - 26 december 2016 , <span>New York</span></h3>-->
+<!--              <h1><small>Designer Community</small>Meetup</h1>-->
+<!--              <ul class="buttons">-->
+<!--                <li><a href="#" class="line-button">REGister Now</a></li>-->
+<!--                <li><a href="#" class="line-button">Learn More</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div><!-- /.header-area -->
 
   <div class="about-area gray-bg" id="about">
@@ -792,186 +798,186 @@
                   </div>
                 </div>
               </div><!-- /.single-testimonial -->
-              <div class="single-testimonial">
-                <div class="row">
-                  <div class="col-sm-7 mb30">
-                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>
-                    <ul class="customer-rating">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <h4>DEazel Kameru</h4>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="client-image primary-shadow">
-                      <img src="/images/testimonial/2.jpg" alt="client" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.single-testimonial -->
-              <div class="single-testimonial">
-                <div class="row">
-                  <div class="col-sm-7 mb30">
-                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>
-                    <ul class="customer-rating">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <h4>DEazel Kameru</h4>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="client-image primary-shadow">
-                      <img src="/images/testimonial/3.jpg" alt="client" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.single-testimonial -->
-              <div class="single-testimonial">
-                <div class="row">
-                  <div class="col-sm-7 mb30">
-                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>
-                    <ul class="customer-rating">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <h4>DEazel Kameru</h4>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="client-image primary-shadow">
-                      <img src="/images/testimonial/4.jpg" alt="client" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.single-testimonial -->
-              <div class="single-testimonial">
-                <div class="row">
-                  <div class="col-sm-7 mb30">
-                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>
-                    <ul class="customer-rating">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <h4>DEazel Kameru</h4>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="client-image primary-shadow">
-                      <img src="/images/testimonial/5.jpg" alt="client" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.single-testimonial -->
-              <div class="single-testimonial">
-                <div class="row">
-                  <div class="col-sm-7 mb30">
-                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>
-                    <ul class="customer-rating">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <h4>DEazel Kameru</h4>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="client-image primary-shadow">
-                      <img src="/images/testimonial/6.jpg" alt="client" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.single-testimonial -->
-              <div class="single-testimonial">
-                <div class="row">
-                  <div class="col-sm-7 mb30">
-                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>
-                    <ul class="customer-rating">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <h4>DEazel Kameru</h4>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="client-image primary-shadow">
-                      <img src="/images/testimonial/7.jpg" alt="client" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.single-testimonial -->
-              <div class="single-testimonial">
-                <div class="row">
-                  <div class="col-sm-7 mb30">
-                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>
-                    <ul class="customer-rating">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <h4>DEazel Kameru</h4>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="client-image primary-shadow">
-                      <img src="/images/testimonial/8.jpg" alt="client" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.single-testimonial -->
-              <div class="single-testimonial">
-                <div class="row">
-                  <div class="col-sm-7 mb30">
-                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>
-                    <ul class="customer-rating">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <h4>DEazel Kameru</h4>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="client-image primary-shadow">
-                      <img src="/images/testimonial/9.jpg" alt="client" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.single-testimonial -->
-              <div class="single-testimonial">
-                <div class="row">
-                  <div class="col-sm-7 mb30">
-                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>
-                    <ul class="customer-rating">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <h4>DEazel Kameru</h4>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="client-image primary-shadow">
-                      <img src="/images/testimonial/10.jpg" alt="client" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.single-testimonial -->
+<!--              <div class="single-testimonial">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-sm-7 mb30">-->
+<!--                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>-->
+<!--                    <ul class="customer-rating">-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                    </ul>-->
+<!--                    <h4>DEazel Kameru</h4>-->
+<!--                  </div>-->
+<!--                  <div class="col-sm-5">-->
+<!--                    <div class="client-image primary-shadow">-->
+<!--                      <img src="/images/testimonial/2.jpg" alt="client" />-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; /.single-testimonial &ndash;&gt;-->
+<!--              <div class="single-testimonial">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-sm-7 mb30">-->
+<!--                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>-->
+<!--                    <ul class="customer-rating">-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                    </ul>-->
+<!--                    <h4>DEazel Kameru</h4>-->
+<!--                  </div>-->
+<!--                  <div class="col-sm-5">-->
+<!--                    <div class="client-image primary-shadow">-->
+<!--                      <img src="/images/testimonial/3.jpg" alt="client" />-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; /.single-testimonial &ndash;&gt;-->
+<!--              <div class="single-testimonial">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-sm-7 mb30">-->
+<!--                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>-->
+<!--                    <ul class="customer-rating">-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                    </ul>-->
+<!--                    <h4>DEazel Kameru</h4>-->
+<!--                  </div>-->
+<!--                  <div class="col-sm-5">-->
+<!--                    <div class="client-image primary-shadow">-->
+<!--                      <img src="/images/testimonial/4.jpg" alt="client" />-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; /.single-testimonial &ndash;&gt;-->
+<!--              <div class="single-testimonial">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-sm-7 mb30">-->
+<!--                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>-->
+<!--                    <ul class="customer-rating">-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                    </ul>-->
+<!--                    <h4>DEazel Kameru</h4>-->
+<!--                  </div>-->
+<!--                  <div class="col-sm-5">-->
+<!--                    <div class="client-image primary-shadow">-->
+<!--                      <img src="/images/testimonial/5.jpg" alt="client" />-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; /.single-testimonial &ndash;&gt;-->
+<!--              <div class="single-testimonial">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-sm-7 mb30">-->
+<!--                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>-->
+<!--                    <ul class="customer-rating">-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                    </ul>-->
+<!--                    <h4>DEazel Kameru</h4>-->
+<!--                  </div>-->
+<!--                  <div class="col-sm-5">-->
+<!--                    <div class="client-image primary-shadow">-->
+<!--                      <img src="/images/testimonial/6.jpg" alt="client" />-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; /.single-testimonial &ndash;&gt;-->
+<!--              <div class="single-testimonial">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-sm-7 mb30">-->
+<!--                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>-->
+<!--                    <ul class="customer-rating">-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                    </ul>-->
+<!--                    <h4>DEazel Kameru</h4>-->
+<!--                  </div>-->
+<!--                  <div class="col-sm-5">-->
+<!--                    <div class="client-image primary-shadow">-->
+<!--                      <img src="/images/testimonial/7.jpg" alt="client" />-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; /.single-testimonial &ndash;&gt;-->
+<!--              <div class="single-testimonial">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-sm-7 mb30">-->
+<!--                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>-->
+<!--                    <ul class="customer-rating">-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                    </ul>-->
+<!--                    <h4>DEazel Kameru</h4>-->
+<!--                  </div>-->
+<!--                  <div class="col-sm-5">-->
+<!--                    <div class="client-image primary-shadow">-->
+<!--                      <img src="/images/testimonial/8.jpg" alt="client" />-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; /.single-testimonial &ndash;&gt;-->
+<!--              <div class="single-testimonial">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-sm-7 mb30">-->
+<!--                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>-->
+<!--                    <ul class="customer-rating">-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                    </ul>-->
+<!--                    <h4>DEazel Kameru</h4>-->
+<!--                  </div>-->
+<!--                  <div class="col-sm-5">-->
+<!--                    <div class="client-image primary-shadow">-->
+<!--                      <img src="/images/testimonial/9.jpg" alt="client" />-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; /.single-testimonial &ndash;&gt;-->
+<!--              <div class="single-testimonial">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-sm-7 mb30">-->
+<!--                    <blockquote>This is the best event i had ever joined. Most exiting this is speakers are so exprienced & helpfull. Also the decoretion was also very good. In one word 'Just Awesome'</blockquote>-->
+<!--                    <ul class="customer-rating">-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                      <li><i class="fa fa-star"></i></li>-->
+<!--                    </ul>-->
+<!--                    <h4>DEazel Kameru</h4>-->
+<!--                  </div>-->
+<!--                  <div class="col-sm-5">-->
+<!--                    <div class="client-image primary-shadow">-->
+<!--                      <img src="/images/testimonial/10.jpg" alt="client" />-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; /.single-testimonial &ndash;&gt;-->
             </div><!-- /#testimonials -->
           </div><!-- /.col -->
         </div><!-- /.row -->
