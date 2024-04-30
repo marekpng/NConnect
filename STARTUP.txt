@@ -1,3 +1,14 @@
 Backend
 PS C:\xampp\htdocs\BackendoveTechnologie\GitKrakenNconnect\NConnect\backend\nconnect
 tu spustime prikaz -> php artisan serve
+
+
+TAKTO NAKLONUJEME GIT REPO A SPUSTIME!
+git clone https://github.com/username/project-name.git
+cd project-name
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+php artisan serve
