@@ -1,0 +1,3 @@
+Backend
+PS C:\xampp\htdocs\BackendoveTechnologie\GitKrakenNconnect\NConnect\backend\nconnect
+tu spustime prikaz -> php artisan serve
