@@ -396,7 +396,7 @@
 <!--    </div>&lt;!&ndash; /.container &ndash;&gt;-->
 <!--  </div>&lt;!&ndash; /.speakers-area &ndash;&gt;-->
 
-  <Sponsors />
+  <Speakers />
   <div class="schedule-area gray-bg">
     <div class="container">
       <div class="sub-heading">
@@ -1107,204 +1107,204 @@
     </div><!-- /.overlay -->
   </div><!-- /.buy-tickit-area -->
 
-  <div class="sponsors-area gray-bg">
-    <div class="container">
-      <div class="sub-heading">
-        <div class="row">
-          <div class="col-md-12">
-            <h4>Our Sponsors</h4>
-          </div>
-        </div>
-      </div>
+<!--  <div class="sponsors-area gray-bg">-->
+<!--    <div class="container">-->
+<!--      <div class="sub-heading">-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-12">-->
+<!--            <h4>Our Sponsors</h4>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="sponsors-nav">
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#SilverSponsors" data-toggle="tab">Silver Sponsors</a></li>
-          <li><a href="#GoldSponsors" data-toggle="tab">Gold Sponsors</a></li>
-          <li><a href="#PlatinumSponsors" data-toggle="tab">Platinum Sponsors</a></li>
-        </ul>
-      </div>
+<!--      <div class="sponsors-nav">-->
+<!--        <ul class="nav nav-tabs">-->
+<!--          <li class="active"><a href="#SilverSponsors" data-toggle="tab">Silver Sponsors</a></li>-->
+<!--          <li><a href="#GoldSponsors" data-toggle="tab">Gold Sponsors</a></li>-->
+<!--          <li><a href="#PlatinumSponsors" data-toggle="tab">Platinum Sponsors</a></li>-->
+<!--        </ul>-->
+<!--      </div>-->
 
-      <div class="tab-content sponsors-contents text-center">
-        <div role="tabpanel" class="tab-pane active" id="SilverSponsors">
-          <div class="row">
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/1.png" alt="sponsor" />
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/2.png" alt="sponsor" />
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/3.png" alt="sponsor" />
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/4.png" alt="sponsor" />
-              </div>
-            </div>
-          </div>
-        </div><!-- /.tabpanel -->
-        <div role="tabpanel" class="tab-pane" id="GoldSponsors">
-          <div class="row">
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/4.png" alt="sponsor" />
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/3.png" alt="sponsor" />
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/2.png" alt="sponsor" />
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/1.png" alt="sponsor" />
-              </div>
-            </div>
-          </div>
-        </div><!-- /.tabpanel -->
-        <div role="tabpanel" class="tab-pane" id="PlatinumSponsors">
-          <div class="row">
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/2.png" alt="sponsor" />
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/1.png" alt="sponsor" />
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/4.png" alt="sponsor" />
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb30">
-              <div class="single-sponsor primary-shadow white-bg">
-                <img src="/images/sponsor/3.png" alt="sponsor" />
-              </div>
-            </div>
-          </div>
-        </div><!-- /.tabpanel -->
-      </div><!-- /.tab-content -->
+<!--      <div class="tab-content sponsors-contents text-center">-->
+<!--        <div role="tabpanel" class="tab-pane active" id="SilverSponsors">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/1.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/2.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/3.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/4.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; /.tabpanel &ndash;&gt;-->
+<!--        <div role="tabpanel" class="tab-pane" id="GoldSponsors">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/4.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/3.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/2.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/1.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; /.tabpanel &ndash;&gt;-->
+<!--        <div role="tabpanel" class="tab-pane" id="PlatinumSponsors">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/2.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/1.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/4.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 mb30">-->
+<!--              <div class="single-sponsor primary-shadow white-bg">-->
+<!--                <img src="/images/sponsor/3.png" alt="sponsor" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; /.tabpanel &ndash;&gt;-->
+<!--      </div>&lt;!&ndash; /.tab-content &ndash;&gt;-->
 
-      <div class="become-sponsor text-center">
-        <a href="" class="button alt"  data-toggle="modal" data-target="#sponsor-form">Become a Sponsor</a>
-      </div>
+<!--      <div class="become-sponsor text-center">-->
+<!--        <a href="" class="button alt"  data-toggle="modal" data-target="#sponsor-form">Become a Sponsor</a>-->
+<!--      </div>-->
 
-      <div class="modal fade" id="sponsor-form" tabindex="-1">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-              <div class="sponsor-form-area white-bg primary-shadow">
-                <div class="sub-heading small">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h4>Become a Sponsor</h4>
-                    </div>
-                  </div>
-                </div>
-                <form action="sponsor.php">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="input-box-underline">
-                        <input class="input" type="text" name="Your-name" id="Your-name" placeholder="Your Name" />
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="input-box-underline">
-                        <input class="input" type="text" name="Email-address" id="Email-address" placeholder="Email address" />
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="input-box-underline">
-                        <input class="input" type="text" name="Phone-No" id="Phone-No" placeholder="Phone No" />
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="input-box-underline">
-                        <input class="input" type="text" name="Company-name" id="Company-name" placeholder="Company name" />
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="input-box-underline">
-                        <input class="input" type="text" name="Position" id="Position" placeholder="Position" />
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="input-box-underline">
-                        <input class="input" type="text" name="Website-Url" id="Website-Url" placeholder="Website Url" />
-                      </div>
-                    </div>
-                  </div><!-- /.row -->
-                  <ul class="row text-center">
-                    <li class="col-sm-4">
-                      <div class="single-package-select">
-                        <input name="sps" value="Silver" id="Silver" checked type="radio">
-                        <label for="Silver">
-                          <span class="h5-like">Silver</span>
-                          <span class="h6-like">$2000.00</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="col-sm-4">
-                      <div class="single-package-select">
-                        <input name="sps" value="Gold" id="Gold" type="radio">
-                        <label for="Gold">
-                          <span class="h5-like">Gold</span>
-                          <span class="h6-like">$5000.00</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="col-sm-4">
-                      <div class="single-package-select">
-                        <input name="sps" value="Platinum" id="Platinum" type="radio">
-                        <label for="Platinum">
-                          <span class="h5-like">Platinum</span>
-                          <span class="h6-like">$10000.00</span>
-                        </label>
-                      </div>
-                    </li>
-                  </ul><!-- /.row -->
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="input-box-underline">
-                        <textarea class="input" name="some-text" id="some-text" placeholder="Tell more about you or your company"></textarea>
-                      </div>
-                    </div>
-                  </div><!-- /.row -->
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <ul class="buttons">
-                        <li><input type="submit" value="submit" class="button alt" /></li>
-                        <li><a href="" class="button alt" data-dismiss="modal">Close</a></li>
-                      </ul>
-                    </div>
-                  </div><!-- /.row -->
-                </form><!-- /form -->
-              </div><!-- /.sponsor-form-area -->
-            </div>
-            <div class="col-md-3"></div>
-          </div><!-- /.row -->
-        </div><!-- /.container -->
-      </div><!-- /.modal -->
+<!--      <div class="modal fade" id="sponsor-form" tabindex="-1">-->
+<!--        <div class="container">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-3"></div>-->
+<!--            <div class="col-md-6">-->
+<!--              <div class="sponsor-form-area white-bg primary-shadow">-->
+<!--                <div class="sub-heading small">-->
+<!--                  <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                      <h4>Become a Sponsor</h4>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <form action="sponsor.php">-->
+<!--                  <div class="row">-->
+<!--                    <div class="col-sm-6">-->
+<!--                      <div class="input-box-underline">-->
+<!--                        <input class="input" type="text" name="Your-name" id="Your-name" placeholder="Your Name" />-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-6">-->
+<!--                      <div class="input-box-underline">-->
+<!--                        <input class="input" type="text" name="Email-address" id="Email-address" placeholder="Email address" />-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-6">-->
+<!--                      <div class="input-box-underline">-->
+<!--                        <input class="input" type="text" name="Phone-No" id="Phone-No" placeholder="Phone No" />-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-6">-->
+<!--                      <div class="input-box-underline">-->
+<!--                        <input class="input" type="text" name="Company-name" id="Company-name" placeholder="Company name" />-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-6">-->
+<!--                      <div class="input-box-underline">-->
+<!--                        <input class="input" type="text" name="Position" id="Position" placeholder="Position" />-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-6">-->
+<!--                      <div class="input-box-underline">-->
+<!--                        <input class="input" type="text" name="Website-Url" id="Website-Url" placeholder="Website Url" />-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>&lt;!&ndash; /.row &ndash;&gt;-->
+<!--                  <ul class="row text-center">-->
+<!--                    <li class="col-sm-4">-->
+<!--                      <div class="single-package-select">-->
+<!--                        <input name="sps" value="Silver" id="Silver" checked type="radio">-->
+<!--                        <label for="Silver">-->
+<!--                          <span class="h5-like">Silver</span>-->
+<!--                          <span class="h6-like">$2000.00</span>-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                    </li>-->
+<!--                    <li class="col-sm-4">-->
+<!--                      <div class="single-package-select">-->
+<!--                        <input name="sps" value="Gold" id="Gold" type="radio">-->
+<!--                        <label for="Gold">-->
+<!--                          <span class="h5-like">Gold</span>-->
+<!--                          <span class="h6-like">$5000.00</span>-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                    </li>-->
+<!--                    <li class="col-sm-4">-->
+<!--                      <div class="single-package-select">-->
+<!--                        <input name="sps" value="Platinum" id="Platinum" type="radio">-->
+<!--                        <label for="Platinum">-->
+<!--                          <span class="h5-like">Platinum</span>-->
+<!--                          <span class="h6-like">$10000.00</span>-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                    </li>-->
+<!--                  </ul>&lt;!&ndash; /.row &ndash;&gt;-->
+<!--                  <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                      <div class="input-box-underline">-->
+<!--                        <textarea class="input" name="some-text" id="some-text" placeholder="Tell more about you or your company"></textarea>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>&lt;!&ndash; /.row &ndash;&gt;-->
+<!--                  <div class="row">-->
+<!--                    <div class="col-sm-12">-->
+<!--                      <ul class="buttons">-->
+<!--                        <li><input type="submit" value="submit" class="button alt" /></li>-->
+<!--                        <li><a href="" class="button alt" data-dismiss="modal">Close</a></li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                  </div>&lt;!&ndash; /.row &ndash;&gt;-->
+<!--                </form>&lt;!&ndash; /form &ndash;&gt;-->
+<!--              </div>&lt;!&ndash; /.sponsor-form-area &ndash;&gt;-->
+<!--            </div>-->
+<!--            <div class="col-md-3"></div>-->
+<!--          </div>&lt;!&ndash; /.row &ndash;&gt;-->
+<!--        </div>&lt;!&ndash; /.container &ndash;&gt;-->
+<!--      </div>&lt;!&ndash; /.modal &ndash;&gt;-->
 
-    </div><!-- /.container -->
-  </div><!-- /.sponsors-area -->
-
+<!--    </div>&lt;!&ndash; /.container &ndash;&gt;-->
+<!--  </div>&lt;!&ndash; /.sponsors-area &ndash;&gt;-->
+<Sponsors />
   <div class="blog-area">
     <div class="container">
       <div class="sub-heading">
@@ -1585,5 +1585,7 @@
 
 </style>
 <script setup>
+
+import Speakers from "@/components/Speakers.vue";
 import Sponsors from "@/components/Sponsors.vue";
 </script>
