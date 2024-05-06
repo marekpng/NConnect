@@ -353,7 +353,7 @@ export default {
             console.error('Error creating sponsor:', error);
           });
     },
-    
+
   }
 }
 </script>
