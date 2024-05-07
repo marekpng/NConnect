@@ -14,8 +14,22 @@ return [
     | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     |
     */
+//AUTH ADMIN LOGIN
+//    'paths' => ['api/*', 'admin/login'], // Add 'admin/login' to allow CORS for this specific route
+//    'allowed_origins' => ['http://localhost:5173'], // Add 'http://localhost:5173' to allow requests from this origin
+//    'allowed_methods' => ['*'],
+//    'allowed_headers' => ['*'],
+//    'exposed_headers' => [],
+//    'max_age' => 0,
+//    'supports_credentials' => false,
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+
+//----------------------------------
+
+
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'admin/login'],
+
+    'allowed_origins' => ['http://localhost:5173'],
 
     'allowed_methods' => ['*'],
 
