@@ -133,7 +133,6 @@
       <path value="$PROJECT_DIR$/backend-tech/vendor/laravel/breeze" />
       <path value="$PROJECT_DIR$/backend-tech/vendor/inertiajs/inertia-laravel" />
       <path value="$PROJECT_DIR$/backend-tech/vendor/tightenco/ziggy" />
-      <path value="$PROJECT_DIR$/backend-tech/vendor/fruitcake/laravel-cors" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
