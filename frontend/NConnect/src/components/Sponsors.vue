@@ -198,19 +198,19 @@
   </div><!-- /.sponsors-area -->
 
 
-<!--  TESTOVANIE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-    <div>
-      <h4>Our Sponsors</h4>
-      <div v-for="sponsor in sponsors" :key="sponsor.id" class="sponsor">
-        <img :src="'/images/sponsors/' + sponsor.image" :alt="sponsor.name" class="sponsor-image">
-        <div class="sponsor-details">
-          <h5>{{ sponsor.name }}</h5>
-          <p><strong>Job:</strong> {{ sponsor.job }}</p>
-          <p><strong>About:</strong> {{ sponsor.about }}</p>
-          <p><strong>Social Media:</strong> <a :href="sponsor.socialmedia">{{ sponsor.socialmedia }}</a></p>
-        </div>
+  <!--  TESTOVANIE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+  <div>
+    <h4>Our Sponsors</h4>
+    <div v-for="sponsor in sponsors" :key="sponsor.id" class="sponsor">
+      <img :src="'/images/sponsors/' + sponsor.image" :alt="sponsor.name" class="sponsor-image">
+      <div class="sponsor-details">
+        <h5>{{ sponsor.name }}</h5>
+        <p><strong>Job:</strong> {{ sponsor.job }}</p>
+        <p><strong>About:</strong> {{ sponsor.about }}</p>
+        <p><strong>Social Media:</strong> <a :href="sponsor.socialmedia">{{ sponsor.socialmedia }}</a></p>
       </div>
     </div>
+  </div>
 
 
 
