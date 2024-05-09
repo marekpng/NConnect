@@ -30,7 +30,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Route::post('/show-request', [TestController::class, 'getRequestData'])
 //    ->middleware(['time']);
 
+//PUBLIC
 //Route::get('/sponsors', [\App\Http\Controllers\SponsorController::class, 'getAllSponsors']);
 Route::get('/sponsors', [\App\Http\Controllers\SponsorController::class, 'getAllSponsors']);
 
-Route::post('/create-sponsor', [\App\Http\Controllers\SponsorController::class, 'createSponsor']);
+//Route::post('/create-sponsor', [\App\Http\Controllers\SponsorController::class, 'createSponsor']);
+
+//Route::group(['middleware' => ['auth:function']], function () {
+//    Route::post('/create-sponsor', [\App\Http\Controllers\SponsorController::class, 'createSponsor']);
+//
+//});
+//Route::middleware('auth:sanctum')->post('/create-sponsor', [\App\Http\Controllers\SponsorController::class, 'createSponsor']);
+
+//PROTECTED
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/create-sponsor', [\App\Http\Controllers\SponsorController::class, 'createSponsor']);
+    Route::post('/logout', [\App\Http\Controllers\AdminAuthController::class, 'logout']);
+
+    // You can add more routes here that need authentication
+});
+    Route::post('/register', [\App\Http\Controllers\AdminAuthController::class, 'register']);
+    Route::post('/login', [\App\Http\Controllers\AdminAuthController::class, 'login']);

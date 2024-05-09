@@ -318,7 +318,54 @@ export default {
   },
   methods: {
     // Method to create a new sponsor
+    // createSponsor() {
+    //   const headers = {
+    //     'Accept': 'application/json',
+    //     'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+    //   };
+    //   // Create FormData object to send file along with other data
+    //   let formData = new FormData();
+    //   formData.append('name', this.newSponsor.name);
+    //   formData.append('email', this.newSponsor.email);
+    //   formData.append('phone', this.newSponsor.phone);
+    //   formData.append('company_name', this.newSponsor.company_name);
+    //   formData.append('position', this.newSponsor.position);
+    //   formData.append('website_url', this.newSponsor.website_url);
+    //   formData.append('sponsorship_type', this.newSponsor.sponsorship_type);
+    //   formData.append('about_company', this.newSponsor.about_company);
+    //   formData.append('image', this.newSponsor.image); // Append image file
+    //
+    //   axios.post('http://127.0.0.1:8000/api/create-sponsor', formData, {headers})
+    //       .then(response => {
+    //         // Log the response or handle it as needed
+    //         console.log(response.data);
+    //         // Optionally, reset the form and hide it after successful creation
+    //         this.newSponsor = {
+    //           name: '',
+    //           email: '',
+    //           phone: '',
+    //           company_name: '',
+    //           position: '',
+    //           website_url: '',
+    //           sponsorship_type: 'gold',
+    //           about_company: '',
+    //           image_url: ''
+    //         };
+    //         this.showForm = false; // Hide the form
+    //       })
+    //       .catch(error => {
+    //         // Check for unauthorized error
+    //         if (error.response && error.response.status === 401) {
+    //           console.error('Unauthorized. Please log in.');
+    //         } else {
+    //           console.error('Error creating sponsor:', error);
+    //         }
+    //       });
     createSponsor() {
+      const headers = {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('adminToken')}` // Include token in headers
+      };
       // Create FormData object to send file along with other data
       let formData = new FormData();
       formData.append('name', this.newSponsor.name);
@@ -331,7 +378,7 @@ export default {
       formData.append('about_company', this.newSponsor.about_company);
       formData.append('image', this.newSponsor.image); // Append image file
 
-      axios.post('http://127.0.0.1:8000/api/create-sponsor', formData)
+      axios.post('http://127.0.0.1:8000/api/create-sponsor', formData, { headers })
           .then(response => {
             // Log the response or handle it as needed
             console.log(response.data);
@@ -348,9 +395,16 @@ export default {
               image_url: ''
             };
             this.showForm = false; // Hide the form
+            // Fetch sponsors again to update the list after creating a new one
+            this.fetchSponsors();
           })
           .catch(error => {
-            console.error('Error creating sponsor:', error);
+            // Check for unauthorized error
+            if (error.response && error.response.status === 401) {
+              console.error('Unauthorized. Please log in.');
+            } else {
+              console.error('Error creating sponsor:', error);
+            }
           });
     },
 

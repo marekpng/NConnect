@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
+            $table->id(); // Add 'id' field as primary key
             $table->string('name', 255); // Change 'meno' to 'name'
             $table->string('email')->unique(); // Add 'email' field
             $table->string('password'); // Add 'password' field
