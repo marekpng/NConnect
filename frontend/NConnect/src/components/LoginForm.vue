@@ -18,6 +18,8 @@
 
 <script>
 import axios from 'axios';
+import router from "@/router/index.js";
+// import { router } from '@/router';
 
 export default {
   name: 'Login',
@@ -42,6 +44,7 @@ export default {
 
             // Optionally, you can redirect the user to another page after successful login
             // window.location.href = '/dashboard';
+            router.push({ name: 'Admin' }); // Assuming the name of the route for admin view is 'Admin'
           })
           .catch(error => {
             // Handle login error here

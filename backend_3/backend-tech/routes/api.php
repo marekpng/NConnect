@@ -49,16 +49,17 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [\App\Http\Controllers\AdminAuthController::class, 'logout']);
 
     // You can add more routes here that need authentication
+
+    Route::prefix('stages')->group(function () {
+        Route::post('/', [StageController::class, 'store']);
+        Route::get('/{stage}', [StageController::class, 'show']);
+        Route::put('/{stage}', [StageController::class, 'update']);
+        Route::delete('/{stage}', [StageController::class, 'destroy']);
+    });
 });
+    Route::get('stages/', [StageController::class, 'index']);
     Route::post('/register', [\App\Http\Controllers\AdminAuthController::class, 'register']);
     Route::post('/login', [\App\Http\Controllers\AdminAuthController::class, 'login']);
 
 //Route::get('/get-stages', [\App\Http\Controllers\StageController::class, 'index']);
 //STAGE
-Route::prefix('stages')->group(function () {
-    Route::get('/', [StageController::class, 'index']);
-    Route::post('/', [StageController::class, 'store']);
-    Route::get('/{stage}', [StageController::class, 'show']);
-    Route::put('/{stage}', [StageController::class, 'update']);
-    Route::delete('/{stage}', [StageController::class, 'destroy']);
-});
