@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('stages', function (Blueprint $table) {
             $table->id();
+            $table->string('name'); // Adding the new column 'name'
             $table->string('date');
             $table->string('time');
             $table->string('title');

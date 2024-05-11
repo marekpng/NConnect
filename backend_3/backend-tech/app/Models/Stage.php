@@ -17,6 +17,6 @@ class Stage extends Model
      */
     protected $table = 'stages';
     protected $fillable = [
-        'date', 'time', 'title', 'description', 'presenter', 'organization', 'image'
+        'name', 'date', 'time', 'title', 'description', 'presenter', 'organization', 'image'
     ];
 }

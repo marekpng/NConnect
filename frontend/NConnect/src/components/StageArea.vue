@@ -96,107 +96,51 @@
 <!--</template>-->
 
 <!--<script>-->
+<!--import axios from 'axios';-->
+
 <!--export default {-->
 <!--  name: "StageArea",-->
 <!--  data() {-->
 <!--    return {-->
 <!--      activeDayIndex: 0, // Initially set to show Day 1-->
-<!--      days: [-->
-<!--        // Your existing data structure-->
-<!--        {-->
-<!--          date: "24 DECEMBER",-->
-<!--          sessions: [-->
-<!--            {-->
-<!--              time: "09:00 Am - 02:00PM",-->
-<!--              title: "Introducing Material Design",-->
-<!--              description: "Material Design is a new Design language Invented by google & its going to rules design industry for few next years. So I think Every Designer Should have some or at least a little bot of knowledge about material design.",-->
-<!--              presenter: "Zarina Kame",-->
-<!--              organization: "Google",-->
-<!--              image: "/images/schedule/1.jpg"-->
-<!--            },-->
-<!--            {-->
-<!--              time: "02:00 Pm - 05:00PM",-->
-<!--              title: "Where to start with Material Design",-->
-<!--              description: "Material Design is a new Design language Invented by google & its going to rules design industry for few next years. So I think Every Designer Should have some or at least a little bot of knowledge about material design.",-->
-<!--              presenter: "Zarina Kame",-->
-<!--              organization: "Google",-->
-<!--              image: "/images/schedule/1.jpg"-->
-<!--            },-->
-<!--            {-->
-<!--              time: "05:00 Pm - 08:00PM",-->
-<!--              title: "Material Design for website",-->
-<!--              description: "Material Design is a new Design language Invented by google & its going to rules design industry for few next years. So I think Every Designer Should have some or at least a little bot of knowledge about material design.",-->
-<!--              presenter: "Zarina Kame",-->
-<!--              organization: "Google",-->
-<!--              image: "/images/schedule/1.jpg"-->
-<!--            }-->
-<!--          ]-->
-<!--        },-->
-<!--        {-->
-<!--          date: "25 DECEMBER",-->
-<!--          sessions: [-->
-<!--            // Add sessions for Day 2-->
-<!--            {-->
-<!--              time: "09:00 Am - 02:00PM",-->
-<!--              title: "Introducing Material BBBBBBBBBBBBB",-->
-<!--              description: "Material Design is a new Design language Invented by google & its going to rules design industry for few next years. So I think Every Designer Should have some or at least a little bot of knowledge about material design.",-->
-<!--              presenter: "Zarina Kame",-->
-<!--              organization: "Google",-->
-<!--              image: "/images/schedule/1.jpg"-->
-<!--            },-->
-<!--            {-->
-<!--              time: "02:00 Pm - 05:00PM",-->
-<!--              title: "Where to start with Material Design",-->
-<!--              description: "Material Design is a new Design language Invented by google & its going to rules design industry for few next years. So I think Every Designer Should have some or at least a little bot of knowledge about material design.",-->
-<!--              presenter: "Zarina Kame",-->
-<!--              organization: "Google",-->
-<!--              image: "/images/schedule/1.jpg"-->
-<!--            },-->
-<!--            {-->
-<!--              time: "05:00 Pm - 08:00PM",-->
-<!--              title: "Material Design for website",-->
-<!--              description: "Material Design is a new Design language Invented by google & its going to rules design industry for few next years. So I think Every Designer Should have some or at least a little bot of knowledge about material design.",-->
-<!--              presenter: "Zarina Kame",-->
-<!--              organization: "Google",-->
-<!--              image: "/images/schedule/1.jpg"-->
-<!--            }-->
-<!--          ]-->
-<!--        },-->
-<!--        {-->
-<!--          date: "26 DECEMBER",-->
-<!--          sessions: [-->
-<!--            // Add sessions for Day 3-->
-<!--            {-->
-<!--              time: "09:00 Am - 02:00PM",-->
-<!--              title: "Introducing Material DDDDDDDDDDDDDD",-->
-<!--              description: "Material Design is a new Design language Invented by google & its going to rules design industry for few next years. So I think Every Designer Should have some or at least a little bot of knowledge about material design.",-->
-<!--              presenter: "Zarina Kame",-->
-<!--              organization: "Google",-->
-<!--              image: "/images/schedule/1.jpg"-->
-<!--            },-->
-<!--            {-->
-<!--              time: "02:00 Pm - 05:00PM",-->
-<!--              title: "Where to start with Material Design",-->
-<!--              description: "Material Design is a new Design language Invented by google & its going to rules design industry for few next years. So I think Every Designer Should have some or at least a little bot of knowledge about material design.",-->
-<!--              presenter: "Zarina Kame",-->
-<!--              organization: "Google",-->
-<!--              image: "/images/schedule/1.jpg"-->
-<!--            },-->
-<!--            {-->
-<!--              time: "05:00 Pm - 08:00PM",-->
-<!--              title: "Material Design for website",-->
-<!--              description: "Material Design is a new Design language Invented by google & its going to rules design industry for few next years. So I think Every Designer Should have some or at least a little bot of knowledge about material design.",-->
-<!--              presenter: "Zarina Kame",-->
-<!--              organization: "Google",-->
-<!--              image: "/images/schedule/1.jpg"-->
-<!--            }-->
-<!--          ]-->
-<!--        }-->
-<!--      ],-->
+<!--      days: [],-->
 <!--      selectedSession: null // Property to store the selected session-->
 <!--    };-->
 <!--  },-->
+<!--  mounted() {-->
+<!--    this.fetchStages();-->
+<!--  },-->
 <!--  methods: {-->
+<!--    async fetchStages() {-->
+<!--      try {-->
+<!--        const response = await axios.get('http://127.0.0.1:8000/api/stages');-->
+
+<!--        // Group sessions by date-->
+<!--        const groupedByDate = {};-->
+<!--        response.data.forEach(stage => {-->
+<!--          const date = stage.date;-->
+<!--          if (!groupedByDate[date]) {-->
+<!--            groupedByDate[date] = [];-->
+<!--          }-->
+<!--          groupedByDate[date].push({-->
+<!--            time: stage.time,-->
+<!--            title: stage.title,-->
+<!--            description: stage.description,-->
+<!--            presenter: stage.presenter,-->
+<!--            organization: stage.organization,-->
+<!--            image: stage.image-->
+<!--          });-->
+<!--        });-->
+
+<!--        // Convert grouped sessions to the days array structure-->
+<!--        this.days = Object.keys(groupedByDate).map(date => ({-->
+<!--          date: date,-->
+<!--          sessions: groupedByDate[date]-->
+<!--        }));-->
+<!--      } catch (error) {-->
+<!--        console.error('Error fetching stages:', error.response.data);-->
+<!--      }-->
+<!--    },-->
 <!--    setActiveDay(index, event) {-->
 <!--      event.preventDefault();-->
 <!--      this.activeDayIndex = index;-->
@@ -207,6 +151,7 @@
 <!--  }-->
 <!--};-->
 <!--</script>-->
+
 
 <!--<style scoped>-->
 <!--/* Your existing styles */-->
@@ -221,6 +166,9 @@
 
 
 
+
+
+<!--BASED ON STAGE NAME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
 <template>
   <div class="schedule-area gray-bg">
@@ -240,10 +188,9 @@
             </div>
             <div class="schedule-date">
               <ul class="nav nav-tabs" role="tablist">
-                <li v-for="(day, index) in days" :key="index" :class="{ 'active': activeDayIndex === index }">
-                  <a href="#" @click="setActiveDay(index, $event)">
-                    <h4>Day {{ index + 1 }}</h4>
-                    <h5>{{ day.date }}</h5>
+                <li v-for="(stage, index) in stages" :key="index" :class="{ 'active': activeStageIndex === index }">
+                  <a href="#" @click="setActiveStage(index, $event)">
+                    <h4>{{ stage.name }}</h4>
                   </a>
                 </li>
               </ul>
@@ -262,9 +209,9 @@
                 </div>
               </div>
               <div class="tab-content">
-                <div v-for="(day, index) in days" :key="index">
-                  <div v-if="activeDayIndex === index">
-                    <div v-for="(session, sessionIndex) in day.sessions" :key="sessionIndex">
+                <div v-for="(stage, index) in stages" :key="index">
+                  <div v-if="activeStageIndex === index">
+                    <div v-for="(session, sessionIndex) in stage.sessions" :key="sessionIndex">
                       <div class="single-schedule panel panel-default">
                         <div class="panel-heading" role="tab">
                           <div class="panel-title single-schedule-title">
@@ -326,8 +273,8 @@ export default {
   name: "StageArea",
   data() {
     return {
-      activeDayIndex: 0, // Initially set to show Day 1
-      days: [],
+      activeStageIndex: 0, // Initially set to show the first stage
+      stages: [],
       selectedSession: null // Property to store the selected session
     };
   },
@@ -339,14 +286,14 @@ export default {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/stages');
 
-        // Group sessions by date
-        const groupedByDate = {};
+        // Group sessions by stage name (case-insensitive)
+        const groupedByStage = {};
         response.data.forEach(stage => {
-          const date = stage.date;
-          if (!groupedByDate[date]) {
-            groupedByDate[date] = [];
+          const stageName = stage.name.toLowerCase(); // Convert stage name to lowercase
+          if (!groupedByStage[stageName]) {
+            groupedByStage[stageName] = [];
           }
-          groupedByDate[date].push({
+          groupedByStage[stageName].push({
             time: stage.time,
             title: stage.title,
             description: stage.description,
@@ -356,18 +303,18 @@ export default {
           });
         });
 
-        // Convert grouped sessions to the days array structure
-        this.days = Object.keys(groupedByDate).map(date => ({
-          date: date,
-          sessions: groupedByDate[date]
+        // Convert grouped sessions to the stages array structure
+        this.stages = Object.keys(groupedByStage).map(stageName => ({
+          name: stageName,
+          sessions: groupedByStage[stageName]
         }));
       } catch (error) {
         console.error('Error fetching stages:', error.response.data);
       }
     },
-    setActiveDay(index, event) {
+    setActiveStage(index, event) {
       event.preventDefault();
-      this.activeDayIndex = index;
+      this.activeStageIndex = index;
     },
     selectSession(session) {
       this.selectedSession = session;
@@ -376,7 +323,6 @@ export default {
 };
 </script>
 
-
 <style scoped>
 /* Your existing styles */
 .selected-session-details {
@@ -384,5 +330,17 @@ export default {
   padding: 10px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
+}
+.schedule-area .sub-heading {
+  margin-bottom: 20px;
+}
+.schedule-area .schedule-date {
+  margin-bottom: 20px;
+}
+.schedule-area .schedule-details .schedule-title {
+  margin-bottom: 20px;
+}
+.schedule-area .single-schedule {
+  margin-bottom: 20px;
 }
 </style>

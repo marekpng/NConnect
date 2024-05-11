@@ -27,6 +27,7 @@ class StageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'date' => 'required',
             'time' => 'required',
             'title' => 'required',
@@ -37,6 +38,7 @@ class StageController extends Controller
         ]);
 
         $stage = new Stage();
+        $stage->name = $request->name; // Adding name to the Stage object
         $stage->date = $request->date;
         $stage->time = $request->time;
         $stage->title = $request->title;
@@ -77,6 +79,7 @@ class StageController extends Controller
     public function update(Request $request, Stage $stage)
     {
         $request->validate([
+            'name' => 'required',
             'date' => 'required',
             'time' => 'required',
             'title' => 'required',
@@ -86,6 +89,7 @@ class StageController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $stage->name = $request->name; // Update name field
         $stage->date = $request->date;
         $stage->time = $request->time;
         $stage->title = $request->title;
