@@ -20,12 +20,12 @@ php artisan serve
 
 Základné funkčné požiadavky
 
-Aplikácia musí obsahovať prihlasovanie/registráciu administrátorov
-Administrátor musí vedieť vykonávať CRUD operácie pre stage
-Administrátor musí vedieť vykonávať CRUD operácie pre časové okná v existujúcich stagoch
+Aplikácia musí obsahovať prihlasovanie/registráciu administrátorov -> Zatial sa vie iba prihlasit registracia je potrebna cez phpmyadmin alebo postman
+Administrátor musí vedieť vykonávať CRUD operácie pre stage -> Vieme napisat k akemu stageu patri prednasajuci aj prednaska aj info o nej
+Administrátor musí vedieť vykonávať CRUD operácie pre časové okná v existujúcich stagoch -> Vieme upravovat cas aj datum kedy sa kona prednaska
 Administrátor musí vedieť vykonávať CRUD operácie pre profily speakerov - obrázok/krátky popis/dlhý popis/linky na sociálne siete
-Administrátor musí vedieť vykonávať CRUD operácie pre prednášky k jednotlivým speakrom - krátky popis/dlhý popis
-Administrátor musí vedieť prideľovať prednášky do jednotlivých časových slotov
+Administrátor musí vedieť vykonávať CRUD operácie pre prednášky k jednotlivým speakrom - krátky popis/dlhý popis -> Vieme upravovat kazdu jednu prednasku so speakrom
+Administrátor musí vedieť prideľovať prednášky do jednotlivých časových slotov -> Prednasky su pridelovane casom pri vytvarani prednasky
 Administrátor musí vedieť vytvoriť sponzora - DONE 
 Administrátor musí mať možnosť vytvorenia galérie - kategorické rozdelenie na ročníky
 Používateľ sa musí vedieť zaregistrovať na konferenciu 
