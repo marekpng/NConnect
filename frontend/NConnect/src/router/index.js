@@ -5,6 +5,7 @@ import AdminView from "@/views/AdminView.vue";
 import AdminDashboardView from "@/views/AdminDashboardView.vue";
 import CrudStagesView from "@/views/CrudStagesView.vue";
 import RegisterView from "@/views/RegisterView.vue";
+import CreateSponsorView from "@/views/CreateSponsorView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,11 +14,6 @@ const router = createRouter({
       path: '/',
       name: 'index',
       component: IndexView
-    },
-    {
-      path: '/admin/register',
-      name: 'register',
-      component: RegisterView
     },
     {
       path: '/login',
@@ -31,9 +27,19 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
+      path: '/admin/register',
+      name: 'register',
+      component: RegisterView
+    },
+    {
       path: '/admin/crud-stages',
       name: 'CrudStages',
       component: CrudStagesView // Associate the route with the new view/component
+    },
+    {
+      path: '/admin/create-sponsor',
+      name: 'CreateSponsor',
+      component: CreateSponsorView // Associate the route with the new view/component
     },
     {
       path: '/about',
