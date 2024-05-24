@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\StageController;
+use App\Http\Controllers\SpeakerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,10 +57,31 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/{stage}', [StageController::class, 'update']);
         Route::delete('/{stage}', [StageController::class, 'destroy']);
     });
+
+
+    //SPEAKERS PROFILE
+    Route::prefix('speakers')->group(function () {
+
+        Route::post('/', [SpeakerController::class, 'store']);
+        Route::put('/{speaker}', [SpeakerController::class, 'update']);
+        Route::delete('/{id}', [SpeakerController::class, 'destroy']);
+
+    });
+
 });
+
     Route::get('stages/', [StageController::class, 'index']);
     Route::post('/register', [\App\Http\Controllers\AdminAuthController::class, 'register']);
     Route::post('/login', [\App\Http\Controllers\AdminAuthController::class, 'login']);
 
 //Route::get('/get-stages', [\App\Http\Controllers\StageController::class, 'index']);
 //STAGE
+
+
+//SPEAKERS PROFILE
+
+Route::prefix('speakers')->group(function () {
+    Route::get('/', [SpeakerController::class, 'index']);
+    Route::get('/{id}', [SpeakerController::class, 'show']);
+});
+
