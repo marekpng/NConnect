@@ -6,6 +6,7 @@ import AdminDashboardView from "@/views/AdminDashboardView.vue";
 import CrudStagesView from "@/views/CrudStagesView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import CreateSponsorView from "@/views/CreateSponsorView.vue";
+import CreateSpeakerView from "@/views/CreateSpeakerView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,17 +30,26 @@ const router = createRouter({
     {
       path: '/admin/register',
       name: 'register',
-      component: RegisterView
+      component: RegisterView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/admin/crud-stages',
       name: 'CrudStages',
-      component: CrudStagesView // Associate the route with the new view/component
+      component: CrudStagesView, // Associate the route with the new view/component
+      meta: { requiresAuth: true }
     },
     {
       path: '/admin/create-sponsor',
       name: 'CreateSponsor',
-      component: CreateSponsorView // Associate the route with the new view/component
+      component: CreateSponsorView, // Associate the route with the new view/component
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/admin/create-speaker',
+      name: 'CreateSpeaker',
+      component: CreateSpeakerView, // Associate the route with the new view/component
+      meta: { requiresAuth: true }
     },
     {
       path: '/about',

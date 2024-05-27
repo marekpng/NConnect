@@ -7,6 +7,7 @@
         <li><router-link to="/admin/crud-stages">CRUD Stages</router-link></li>
         <li><router-link to="/admin/register">Register new admin</router-link></li>
         <li><router-link to="/admin/create-sponsor">Create Sponsor</router-link></li>
+        <li><router-link to="/admin/create-speaker">Create Speaker profile</router-link></li>
 
       </ul>
     </nav>

@@ -1,3 +1,5 @@
+<!--&lt;!&ndash;BASED ON STAGE NAME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&ndash;&gt;-->
+
 <!--<template>-->
 <!--  <div class="schedule-area gray-bg">-->
 <!--    <div class="container">-->
@@ -16,10 +18,9 @@
 <!--            </div>-->
 <!--            <div class="schedule-date">-->
 <!--              <ul class="nav nav-tabs" role="tablist">-->
-<!--                <li v-for="(day, index) in days" :key="index" :class="{ 'active': activeDayIndex === index }">-->
-<!--                  <a href="#" @click="setActiveDay(index, $event)">-->
-<!--                    <h4>Day {{ index + 1 }}</h4>-->
-<!--                    <h5>{{ day.date }}</h5>-->
+<!--                <li v-for="(stage, index) in stages" :key="index" :class="{ 'active': activeStageIndex === index }">-->
+<!--                  <a href="#" @click="setActiveStage(index, $event)">-->
+<!--                    <h4>{{ stage.name }}</h4>-->
 <!--                  </a>-->
 <!--                </li>-->
 <!--              </ul>-->
@@ -38,9 +39,9 @@
 <!--                </div>-->
 <!--              </div>-->
 <!--              <div class="tab-content">-->
-<!--                <div v-for="(day, index) in days" :key="index">-->
-<!--                  <div v-if="activeDayIndex === index">-->
-<!--                    <div v-for="(session, sessionIndex) in day.sessions" :key="sessionIndex">-->
+<!--                <div v-for="(stage, index) in stages" :key="index">-->
+<!--                  <div v-if="activeStageIndex === index">-->
+<!--                    <div v-for="(session, sessionIndex) in stage.sessions" :key="sessionIndex">-->
 <!--                      <div class="single-schedule panel panel-default">-->
 <!--                        <div class="panel-heading" role="tab">-->
 <!--                          <div class="panel-title single-schedule-title">-->
@@ -102,8 +103,8 @@
 <!--  name: "StageArea",-->
 <!--  data() {-->
 <!--    return {-->
-<!--      activeDayIndex: 0, // Initially set to show Day 1-->
-<!--      days: [],-->
+<!--      activeStageIndex: 0, // Initially set to show the first stage-->
+<!--      stages: [],-->
 <!--      selectedSession: null // Property to store the selected session-->
 <!--    };-->
 <!--  },-->
@@ -115,14 +116,14 @@
 <!--      try {-->
 <!--        const response = await axios.get('http://127.0.0.1:8000/api/stages');-->
 
-<!--        // Group sessions by date-->
-<!--        const groupedByDate = {};-->
+<!--        // Group sessions by stage name (case-insensitive)-->
+<!--        const groupedByStage = {};-->
 <!--        response.data.forEach(stage => {-->
-<!--          const date = stage.date;-->
-<!--          if (!groupedByDate[date]) {-->
-<!--            groupedByDate[date] = [];-->
+<!--          const stageName = stage.name.toLowerCase(); // Convert stage name to lowercase-->
+<!--          if (!groupedByStage[stageName]) {-->
+<!--            groupedByStage[stageName] = [];-->
 <!--          }-->
-<!--          groupedByDate[date].push({-->
+<!--          groupedByStage[stageName].push({-->
 <!--            time: stage.time,-->
 <!--            title: stage.title,-->
 <!--            description: stage.description,-->
@@ -132,18 +133,18 @@
 <!--          });-->
 <!--        });-->
 
-<!--        // Convert grouped sessions to the days array structure-->
-<!--        this.days = Object.keys(groupedByDate).map(date => ({-->
-<!--          date: date,-->
-<!--          sessions: groupedByDate[date]-->
+<!--        // Convert grouped sessions to the stages array structure-->
+<!--        this.stages = Object.keys(groupedByStage).map(stageName => ({-->
+<!--          name: stageName,-->
+<!--          sessions: groupedByStage[stageName]-->
 <!--        }));-->
 <!--      } catch (error) {-->
 <!--        console.error('Error fetching stages:', error.response.data);-->
 <!--      }-->
 <!--    },-->
-<!--    setActiveDay(index, event) {-->
+<!--    setActiveStage(index, event) {-->
 <!--      event.preventDefault();-->
-<!--      this.activeDayIndex = index;-->
+<!--      this.activeStageIndex = index;-->
 <!--    },-->
 <!--    selectSession(session) {-->
 <!--      this.selectedSession = session;-->
@@ -151,7 +152,6 @@
 <!--  }-->
 <!--};-->
 <!--</script>-->
-
 
 <!--<style scoped>-->
 <!--/* Your existing styles */-->
@@ -161,6 +161,18 @@
 <!--  border: 1px solid #ccc;-->
 <!--  background-color: #f9f9f9;-->
 <!--}-->
+<!--.schedule-area .sub-heading {-->
+<!--  margin-bottom: 20px;-->
+<!--}-->
+<!--.schedule-area .schedule-date {-->
+<!--  margin-bottom: 20px;-->
+<!--}-->
+<!--.schedule-area .schedule-details .schedule-title {-->
+<!--  margin-bottom: 20px;-->
+<!--}-->
+<!--.schedule-area .single-schedule {-->
+<!--  margin-bottom: 20px;-->
+<!--}-->
 <!--</style>-->
 
 
@@ -168,7 +180,6 @@
 
 
 
-<!--BASED ON STAGE NAME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
 <template>
   <div class="schedule-area gray-bg">
@@ -191,6 +202,7 @@
                 <li v-for="(stage, index) in stages" :key="index" :class="{ 'active': activeStageIndex === index }">
                   <a href="#" @click="setActiveStage(index, $event)">
                     <h4>{{ stage.name }}</h4>
+                    <h5>{{ stage.date }}</h5> <!-- Added stage.date here -->
                   </a>
                 </li>
               </ul>
@@ -286,14 +298,18 @@ export default {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/stages');
 
-        // Group sessions by stage name (case-insensitive)
-        const groupedByStage = {};
+        // Group sessions by stage name and date (case-insensitive)
+        const groupedByStageAndDate = {};
         response.data.forEach(stage => {
-          const stageName = stage.name.toLowerCase(); // Convert stage name to lowercase
-          if (!groupedByStage[stageName]) {
-            groupedByStage[stageName] = [];
+          const stageKey = `${stage.name.toLowerCase()}_${stage.date}`; // Combine stage name and date as key
+          if (!groupedByStageAndDate[stageKey]) {
+            groupedByStageAndDate[stageKey] = {
+              name: stage.name,
+              date: stage.date,
+              sessions: []
+            };
           }
-          groupedByStage[stageName].push({
+          groupedByStageAndDate[stageKey].sessions.push({
             time: stage.time,
             title: stage.title,
             description: stage.description,
@@ -304,10 +320,7 @@ export default {
         });
 
         // Convert grouped sessions to the stages array structure
-        this.stages = Object.keys(groupedByStage).map(stageName => ({
-          name: stageName,
-          sessions: groupedByStage[stageName]
-        }));
+        this.stages = Object.values(groupedByStageAndDate);
       } catch (error) {
         console.error('Error fetching stages:', error.response.data);
       }

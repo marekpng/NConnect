@@ -721,7 +721,7 @@ p span{
 	position:relative;
 }
 .speaker-name h5:after{
-	content: attr(title);
+
 	color:#7c4dff;
 	position:absolute;
 	top:0;
@@ -733,6 +733,7 @@ p span{
 	-webkit-transition:all 1s ease;
 	-moz-transition:all 1s ease;
 	transition:all 1s ease;
+
 }
 .single-speaker:hover .speaker-name h5:after{
 	width:100%;
