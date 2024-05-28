@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('presenter');
             $table->string('organization');
             $table->string('image')->nullable();
+            $table->integer('capacity'); // Adding the new column 'capacity'
             $table->timestamps();
         });
     }
