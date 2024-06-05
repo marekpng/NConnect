@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\StageController;
 use App\Http\Controllers\SpeakerController;
-
+use App\Http\Controllers\StageUserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -84,4 +84,5 @@ Route::prefix('speakers')->group(function () {
     Route::get('/', [SpeakerController::class, 'index']);
     Route::get('/{id}', [SpeakerController::class, 'show']);
 });
+
 
