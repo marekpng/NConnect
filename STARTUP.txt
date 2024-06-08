@@ -28,10 +28,10 @@ Administrátor musí vedieť vykonávať CRUD operácie pre prednášky k jednot
 Administrátor musí vedieť prideľovať prednášky do jednotlivých časových slotov -> Prednasky su pridelovane casom pri vytvarani prednasky
 Administrátor musí vedieť vytvoriť sponzora - DONE 
 Administrátor musí mať možnosť vytvorenia galérie - kategorické rozdelenie na ročníky SAMO - backend DONE
-Používateľ sa musí vedieť zaregistrovať na konferenciu -> TOTO ROBI SAMUEL - backend DONE
-Po registrácii je potrebné aby prišiel registračný email na predvolenú adresu ako aj na adresu používateľa -> TOTO ROBI SAMO - backend DONE
-Používateľ sa musí vedieť odhlásiť s konferencie -> TOTO ROBI SAMO - backend DONE
-Administrátor musí vedieť kto sa na danú konferenciu zaregistroval -> TOTO ROBI SAMO - backend DONE
+Používateľ sa musí vedieť zaregistrovať na konferenciu -> TOTO ROBI SAMUEL - backend DONE  -> FRONTEND AJ BACKEND DONE
+Po registrácii je potrebné aby prišiel registračný email na predvolenú adresu ako aj na adresu používateľa -> TOTO ROBI SAMO - backend DONE  -> FRONTEND AJ BACKEND DONE
+Používateľ sa musí vedieť odhlásiť s konferencie -> TOTO ROBI SAMO - backend DONE  -> FRONTEND AJ BACKEND DONE
+Administrátor musí vedieť kto sa na danú konferenciu zaregistroval -> TOTO ROBI SAMO - backend DONE  -> FRONTEND AJ BACKEND DONE
 Používateľ pri prihlasovaní sa na konferenciu musí mať možnosť výberu s jednotlivých prednášok - validácia časových okien (nedovoliť vybrať 2 prednášky v tom istom čase) -> TOTO ROBI SAMO  - backend DONE
 Administrátor musí mať možnosť nastavovať kapacitu jednotlivých prednášok - toto sa musí prejavovať aj pri registrácii -> DONE (pri vytvarani stage/prednasky vie nastavit kapacitu)
 Administrátor musí vedieť vykonávať CRUD operácie nad sekciou Povedali o nás - foto, výrok SAMO  - backend DONE
