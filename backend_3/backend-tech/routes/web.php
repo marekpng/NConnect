@@ -47,13 +47,13 @@ Route::post('/admin/login', [\App\Http\Controllers\AdminAuthController::class, '
 //Route::post('/admin/login', 'AdminAuthController@login');
 
 
-Route::post('/stages/{stage}/send-signin-link', [StageUserController::class, 'sendSignInLink'])->name('stages.sendSigninLink');
-Route::post('/stages/{stage}/send-signout-link', [StageUserController::class, 'sendSignOutLink'])->name('stages.sendSignoutLink');
+//Route::post('/stages/{stage}/send-signin-link', [StageUserController::class, 'sendSignInLink'])->name('stages.sendSigninLink');
+//Route::post('/stages/{stage}/send-signout-link', [StageUserController::class, 'sendSignOutLink'])->name('stages.sendSignoutLink');
 
-Route::get('/stages/{stage}/signin/{user}', [StageUserController::class, 'signIn'])->name('stages.signin');
-Route::get('/stages/{stage}/signout/{user}', [StageUserController::class, 'signOut'])->name('stages.signout');
+//Route::get('/stages/{stage}/signin/{user}', [StageUserController::class, 'signIn'])->name('stages.signin');
+//Route::get('/stages/{stage}/signout/{user}', [StageUserController::class, 'signOut'])->name('stages.signout');
 
-Route::get('/stage-users', [StageUserController::class, 'getStageUsers']);
+//Route::get('/stage-users', [StageUserController::class, 'getStageUsers']);
 
 Route::get('/about-us', [AboutUsController::class, 'index']);
 Route::get('/about-us/{id}', [AboutUsController::class, 'show']);

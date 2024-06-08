@@ -68,6 +68,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
     });
 
+
+    //Zobraz prihlasenych uzivatelov
+    Route::get('/stage-users', [StageUserController::class, 'getStageUsers']);
+
 });
 
     Route::get('stages/', [StageController::class, 'index']);
@@ -84,5 +88,13 @@ Route::prefix('speakers')->group(function () {
     Route::get('/', [SpeakerController::class, 'index']);
     Route::get('/{id}', [SpeakerController::class, 'show']);
 });
+
+
+//EMAIL REGISTRACIA
+Route::post('/stages/{stage}/send-signin-link', [StageUserController::class, 'sendSignInLink'])->name('stages.sendSigninLink');
+Route::post('/stages/{stage}/send-signout-link', [StageUserController::class, 'sendSignOutLink'])->name('stages.sendSignoutLink');
+
+Route::get('/stages/{stage}/signin/{user}', [StageUserController::class, 'signIn'])->name('stages.signin');
+Route::get('/stages/{stage}/signout/{user}', [StageUserController::class, 'signOut'])->name('stages.signout');
 
 

@@ -7,6 +7,7 @@ import CrudStagesView from "@/views/CrudStagesView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import CreateSponsorView from "@/views/CreateSponsorView.vue";
 import CreateSpeakerView from "@/views/CreateSpeakerView.vue";
+import ShowRegisteredUsers from "@/views/ShowRegisteredUsers.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,14 @@ const router = createRouter({
       component: CreateSpeakerView, // Associate the route with the new view/component
       meta: { requiresAuth: true }
     },
+    {
+      path: '/admin/show-registered-users',
+      name: 'ShowRegisteredUsers',
+      component: ShowRegisteredUsers, // Associate the route with the new view/component
+      meta: { requiresAuth: true }
+    },
+
+
     {
       path: '/about',
       name: 'about',

@@ -732,7 +732,7 @@
 <!--    </div>-->
 <!--  </div>&lt;!&ndash; /.schedule-area &ndash;&gt;-->
   <StageArea />
-
+<Gallery />
   <div class="testimonials-area image-bg">
     <div class="overlay">
       <div class="container">
@@ -1590,4 +1590,5 @@
 import Speakers from "@/components/Speakers.vue";
 import Sponsors from "@/components/Sponsors.vue";
 import StageArea from "@/components/StageArea.vue";
+import Gallery from "@/components/Gallery.vue";
 </script>

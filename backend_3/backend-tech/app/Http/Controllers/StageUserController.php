@@ -127,7 +127,7 @@ class StageUserController extends Controller
         $stageUsers = \DB::table('stage_user')
             ->join('user', 'stage_user.user_id', '=', 'user.id')
             ->join('stages', 'stage_user.stage_id', '=', 'stages.id')
-            ->select('stages.id as stage_id', 'stages.name as stage_name', 'user.id as user_id', 'user.meno as user_name', 'user.email as user_email')
+            ->select('stages.id as stage_id', 'stages.title as stage_name', 'user.id as user_id', 'user.meno as user_name', 'user.email as user_email')
             ->get();
 
         return response()->json($stageUsers);

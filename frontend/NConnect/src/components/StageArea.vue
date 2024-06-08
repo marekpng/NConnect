@@ -267,13 +267,40 @@
       </div><!-- /.schedules -->
 
       <!-- Add a new section to display selected session details -->
+<!--      <div v-if="selectedSession" class="selected-session-details">-->
+<!--        <h4>{{ selectedSession.title }}</h4>-->
+<!--        <p>{{ selectedSession.description }}</p>-->
+<!--        <p><strong>Presenter:</strong> {{ selectedSession.presenter }}</p>-->
+<!--        <p><strong>Organization:</strong> <a href="">{{ selectedSession.organization }}</a></p>-->
+<!--        <button @click="selectedSession = null">Close</button>-->
+<!--      </div>-->
+
       <div v-if="selectedSession" class="selected-session-details">
         <h4>{{ selectedSession.title }}</h4>
         <p>{{ selectedSession.description }}</p>
         <p><strong>Presenter:</strong> {{ selectedSession.presenter }}</p>
         <p><strong>Organization:</strong> <a href="">{{ selectedSession.organization }}</a></p>
+
+
         <button @click="selectedSession = null">Close</button>
+        <button @click="showRegistrationForm = true">Register</button>
+        <button @click="showSignOutForm = true">Sign Out</button>  <!-- New Sign Out Button -->
+
+        <div v-if="showRegistrationForm">
+          <form @submit.prevent="registerForStage">
+            <input type="email" v-model="registrationEmail" placeholder="Enter your email" required>
+            <input type="text" v-model="registrationName" placeholder="Enter your name" required>
+            <button type="submit">Send Registration Link</button>
+          </form>
+        </div>
+        <div v-if="showSignOutForm">
+          <form @submit.prevent="signOut">
+            <input type="email" v-model="signOutEmail" placeholder="Enter your email to sign out" required>
+            <button type="submit">Confirm Sign Out</button>
+          </form>
+        </div>
       </div>
+
     </div>
   </div><!-- /.schedule-area -->
 </template>
@@ -287,7 +314,12 @@ export default {
     return {
       activeStageIndex: 0, // Initially set to show the first stage
       stages: [],
-      selectedSession: null // Property to store the selected session
+      selectedSession: null, // Property to store the selected session
+      showRegistrationForm: false, // Controls visibility of the registration form
+      registrationEmail: '',       // Binds to the email input field
+      registrationName: '',
+      showSignOutForm: false,  // Control visibility of the sign out form
+      signOutEmail: ''         // Store the sign out email
     };
   },
   mounted() {
@@ -295,34 +327,72 @@ export default {
   },
   methods: {
     async fetchStages() {
+      // try {
+      //   const response = await axios.get('http://127.0.0.1:8000/api/stages');
+      //   console.log("VRATENE DATA ZO STAGEOV !");
+      //   console.log(response);
+      //   // Group sessions by stage name and date (case-insensitive)
+      //   const groupedByStageAndDate = {};
+      //   response.data.forEach(stage => {
+      //     const stageKey = `${stage.name.toLowerCase()}_${stage.date}`; // Combine stage name and date as key
+      //     if (!groupedByStageAndDate[stageKey]) {
+      //       groupedByStageAndDate[stageKey] = {
+      //         id: stage.id,
+      //         name: stage.name,
+      //         date: stage.date,
+      //         sessions: []
+      //       };
+      //     }
+      //
+      //     groupedByStageAndDate[stageKey].sessions.push({
+      //       time: stage.time,
+      //       title: stage.title,
+      //       description: stage.description,
+      //       presenter: stage.presenter,
+      //       organization: stage.organization,
+      //       image: stage.image,
+      //       stageId: stage.id
+      //     });
+      //   });
+      //
+      //   // Convert grouped sessions to the stages array structure
+      //   this.stages = Object.values(groupedByStageAndDate);
+      // } catch (error) {
+      //   console.error('Error fetching stages:', error.response.data);
+      // }
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/stages');
+        console.log("Returned data from stages:");
+        console.log(response);
 
-        // Group sessions by stage name and date (case-insensitive)
         const groupedByStageAndDate = {};
         response.data.forEach(stage => {
           const stageKey = `${stage.name.toLowerCase()}_${stage.date}`; // Combine stage name and date as key
           if (!groupedByStageAndDate[stageKey]) {
             groupedByStageAndDate[stageKey] = {
+              id: stage.id,
               name: stage.name,
               date: stage.date,
               sessions: []
             };
           }
+
+          // Here we ensure each session also contains the stageId
           groupedByStageAndDate[stageKey].sessions.push({
             time: stage.time,
             title: stage.title,
             description: stage.description,
             presenter: stage.presenter,
             organization: stage.organization,
-            image: stage.image
+            image: stage.image,
+            stageId: stage.id  // Keep the stageId in each session
           });
         });
 
         // Convert grouped sessions to the stages array structure
         this.stages = Object.values(groupedByStageAndDate);
       } catch (error) {
-        console.error('Error fetching stages:', error.response.data);
+        console.error('Error fetching stages:', error.response ? error.response.data : error.message);
       }
     },
     setActiveStage(index, event) {
@@ -331,7 +401,34 @@ export default {
     },
     selectSession(session) {
       this.selectedSession = session;
-    }
+    },
+    async registerForStage() {
+      try {
+
+        const response = await axios.post(`http://127.0.0.1:8000/api/stages/${this.selectedSession.stageId}/send-signin-link`, {
+          email: this.registrationEmail,
+          name: this.registrationName
+        });
+        alert('Registration successful! Check your email for a verification link.');
+        this.showRegistrationForm = false; // Hide form on successful registration
+      } catch (error) {
+        console.error('Registration failed:', error);
+        alert('Registration failed. Please try again.');
+      }
+    },
+    async signOut() {
+      try {
+        const response = await axios.post(`http://127.0.0.1:8000/api/stages/${this.selectedSession.stageId}/send-signout-link`, {
+          email: this.signOutEmail
+        });
+        alert('Confirm you sign out request on email.');
+        this.signOutEmail = '';
+        this.showSignOutForm = false;  // Hide the form after successful sign out
+      } catch (error) {
+        console.error('Sign out failed:', error);
+        alert('Sign out failed. Please try again.');
+      }
+    },
   }
 };
 </script>
