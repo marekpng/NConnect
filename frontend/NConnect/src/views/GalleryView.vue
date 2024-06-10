@@ -1,11 +1,17 @@
-<!-- src/views/GalleryView.vue -->
 <template>
   <div>
-    <h1>Gallery</h1>
-    <div v-for="(images, year) in groupedImages" :key="year" class="gallery-year-group">
-      <h2>{{ year }}</h2>
-      <div class="gallery-images">
-        <img v-for="image in images" :key="image.id" :src="image.image_link" :alt="image.description" />
+    <div class="gallery-header">
+      <h1>Gallery</h1>
+    </div>
+    <div class="gallery-container">
+      <div v-for="yearGroup in groupedGalleryItems" :key="yearGroup.year" class="year-group">
+        <h2>{{ yearGroup.year }}</h2>
+        <div class="gallery-year-group">
+          <div class="gallery-item" v-for="item in yearGroup.items" :key="item.id">
+            <img :src="item.image_link" :alt="item.description" />
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -15,47 +21,96 @@
 export default {
   data() {
     return {
-      gallery: []
+      galleryItems: [],
     };
   },
   computed: {
-    groupedImages() {
-      return this.gallery.reduce((acc, image) => {
-        const year = image.year;
-        if (!acc[year]) {
-          acc[year] = [];
+    groupedGalleryItems() {
+      const grouped = {};
+      this.galleryItems.forEach((item) => {
+        const year = item.year;
+        if (!grouped[year]) {
+          grouped[year] = [];
         }
-        acc[year].push(image);
-        return acc;
-      }, {});
-    }
+        grouped[year].push(item);
+      });
+      return Object.keys(grouped).map((year) => ({
+        year,
+        items: grouped[year],
+      }));
+    },
   },
   methods: {
-    fetchGallery() {
+    fetchGalleryItems() {
       fetch('http://127.0.0.1:8000/api/gallery')
-          .then(response => response.json())
-          .then(data => {
-            this.gallery = data;
+          .then((response) => response.json())
+          .then((data) => {
+            this.galleryItems = data;
           });
-    }
+    },
   },
   created() {
-    this.fetchGallery();
-  }
+    this.fetchGalleryItems();
+  },
 };
 </script>
 
 <style scoped>
-.gallery-year-group {
-  margin-bottom: 2rem;
+.gallery-header {
+  text-align: center;
+  margin: 20px 0;
 }
-.gallery-images {
+
+.gallery-container {
+  padding: 20px;
+}
+
+.year-group {
+  margin-bottom: 40px;
+}
+
+.gallery-year-group {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
-.gallery-images img {
-  margin: 0.5rem;
-  max-width: 100px;
-  max-height: 100px;
+
+.gallery-item {
+  flex: 1 1 calc(33.333% - 40px);
+  max-width: calc(33.333% - 40px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-item p {
+  padding: 10px;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .gallery-item {
+    flex: 1 1 calc(50% - 40px);
+    max-width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-item {
+    flex: 1 1 calc(100% - 40px);
+    max-width: calc(100% - 40px);
+  }
 }
 </style>
