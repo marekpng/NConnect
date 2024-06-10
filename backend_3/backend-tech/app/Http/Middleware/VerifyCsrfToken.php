@@ -15,6 +15,7 @@ class VerifyCsrfToken extends Middleware
         'stages/*/send-signin-link',
         'stages/*/send-signout-link',
         '/about-us*',
-        '/gallery*'
+        '/gallery*',
+        '/admin*'
     ];
 }

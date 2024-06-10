@@ -5,7 +5,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\StageUserController;
-use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\GalleryController;
 
 /*
@@ -55,18 +54,14 @@ Route::post('/admin/login', [\App\Http\Controllers\AdminAuthController::class, '
 
 //Route::get('/stage-users', [StageUserController::class, 'getStageUsers']);
 
-Route::get('/about-us', [AboutUsController::class, 'index']);
-Route::get('/about-us/{id}', [AboutUsController::class, 'show']);
-Route::post('/about-us', [AboutUsController::class, 'store']);
-Route::put('/about-us/{id}', [AboutUsController::class, 'update']);
-Route::delete('/about-us/{id}', [AboutUsController::class, 'destroy']);
 
 
-Route::get('/gallery', [GalleryController::class, 'index']);
-Route::get('/gallery/{id}', [GalleryController::class, 'show']);
-Route::post('/gallery', [GalleryController::class, 'store']);
-Route::put('/gallery/{id}', [GalleryController::class, 'update']);
-Route::delete('/gallery/{id}', [GalleryController::class, 'destroy']);
+
+//Route::get('/gallery', [GalleryController::class, 'index']);
+//Route::get('/gallery/{id}', [GalleryController::class, 'show']);
+//Route::post('/gallery', [GalleryController::class, 'store']);
+//Route::put('/gallery/{id}', [GalleryController::class, 'update']);
+//Route::delete('/gallery/{id}', [GalleryController::class, 'destroy']);
 
 
 require __DIR__.'/auth.php';

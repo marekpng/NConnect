@@ -8,6 +8,9 @@ import RegisterView from "@/views/RegisterView.vue";
 import CreateSponsorView from "@/views/CreateSponsorView.vue";
 import CreateSpeakerView from "@/views/CreateSpeakerView.vue";
 import ShowRegisteredUsers from "@/views/ShowRegisteredUsers.vue";
+import AboutUsManager from '@/components/AboutUsManager.vue'; // Import the new component
+import GalleryView from '@/views/GalleryView.vue'; // Import the new component
+import GalleryManager from '@/components/GalleryManager.vue'; // Import the new component
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -58,7 +61,23 @@ const router = createRouter({
       component: ShowRegisteredUsers, // Associate the route with the new view/component
       meta: { requiresAuth: true }
     },
-
+    {
+      path: '/admin/about-us',
+      name: 'AboutUsManager',
+      component: AboutUsManager, // Associate the route with the new component
+      meta: { requiresAuth: false }
+    },
+    {
+      path: '/gallery',
+      name: 'GalleryView',
+      component: GalleryView // Add the new route
+    },
+    {
+      path: '/admin/gallery',
+      name: 'GalleryManager',
+      component: GalleryManager, // Add the new route
+      meta: { requiresAuth: false }
+    },
 
     {
       path: '/about',

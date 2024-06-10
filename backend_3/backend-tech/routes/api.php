@@ -6,6 +6,9 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\StageController;
 use App\Http\Controllers\SpeakerController;
 use App\Http\Controllers\StageUserController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\GalleryController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -96,5 +99,17 @@ Route::post('/stages/{stage}/send-signout-link', [StageUserController::class, 's
 
 Route::get('/stages/{stage}/signin/{user}', [StageUserController::class, 'signIn'])->name('stages.signin');
 Route::get('/stages/{stage}/signout/{user}', [StageUserController::class, 'signOut'])->name('stages.signout');
+
+Route::get('/about-us', [AboutUsController::class, 'index']);
+Route::get('/about-us/{id}', [AboutUsController::class, 'show']);
+Route::post('/about-us', [AboutUsController::class, 'store']);
+Route::put('/about-us/{id}', [AboutUsController::class, 'update']);
+Route::delete('/about-us/{id}', [AboutUsController::class, 'destroy']);
+
+Route::get('/gallery', [GalleryController::class, 'index']);
+Route::get('/gallery/{id}', [GalleryController::class, 'show']);
+Route::post('/gallery', [GalleryController::class, 'store']);
+Route::put('/gallery/{id}', [GalleryController::class, 'update']);
+Route::delete('/gallery/{id}', [GalleryController::class, 'destroy']);
 
 
