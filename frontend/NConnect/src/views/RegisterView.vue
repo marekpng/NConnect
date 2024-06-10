@@ -1,4 +1,5 @@
 <template>
+  <AdminNavbar />
   <div>
     <h2>Register New Admin</h2>
     <form @submit.prevent="registerAdmin">
@@ -27,8 +28,10 @@
 <script>
 import axios from "axios";
 import router from "@/router/index.js";
+import AdminNavbar from "@/components/AdminNavbar.vue";
 export default {
   name: "RegisterView",
+  components: {AdminNavbar},
   data() {
     return {
       formData: {

@@ -1,4 +1,5 @@
 <template>
+  <AdminNavbar />
   <div class="about">
     <h1>Registered users</h1>
     <div v-if="stageUsers.length">
@@ -27,9 +28,11 @@
 
 <script>
 import axios from 'axios';
+import AdminNavbar from "@/components/AdminNavbar.vue";
 
 export default {
   name: 'AboutPage',
+  components: {AdminNavbar},
   data() {
     return {
       stageUsers: []

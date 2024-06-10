@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SponsorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
@@ -36,8 +37,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    ->middleware(['time']);
 
 //PUBLIC
+//SPONSORS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //Route::get('/sponsors', [\App\Http\Controllers\SponsorController::class, 'getAllSponsors']);
-Route::get('/sponsors', [\App\Http\Controllers\SponsorController::class, 'getAllSponsors']);
+//Route::get('/sponsors', [\App\Http\Controllers\SponsorController::class, 'getAllSponsors']);
 
 //Route::post('/create-sponsor', [\App\Http\Controllers\SponsorController::class, 'createSponsor']);
 
@@ -49,7 +51,11 @@ Route::get('/sponsors', [\App\Http\Controllers\SponsorController::class, 'getAll
 
 //PROTECTED
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/create-sponsor', [\App\Http\Controllers\SponsorController::class, 'createSponsor']);
+//    SPONSORS
+    Route::post('/create-sponsor', [SponsorController::class, 'createSponsor']);
+
+
+
     Route::post('/logout', [\App\Http\Controllers\AdminAuthController::class, 'logout']);
 
     // You can add more routes here that need authentication
@@ -111,5 +117,14 @@ Route::get('/gallery/{id}', [GalleryController::class, 'show']);
 Route::post('/gallery', [GalleryController::class, 'store']);
 Route::put('/gallery/{id}', [GalleryController::class, 'update']);
 Route::delete('/gallery/{id}', [GalleryController::class, 'destroy']);
+
+
+//SPONSORS TEST
+Route::get('/sponsors', [SponsorController::class, 'getAllSponsors']);
+//Route::post('/create-sponsor', [SponsorController::class, 'createSponsor']);
+//Route::put('/sponsors/{id}', [SponsorController::class, 'updateSponsor']);
+//Route::delete('/sponsors/{id}', [SponsorController::class, 'deleteSponsor']);
+
+
 
 

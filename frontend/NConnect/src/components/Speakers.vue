@@ -12,7 +12,8 @@
         <div v-for="speaker in speakers" :key="speaker.id" class="col-md-3 col-sm-6 mb30">
           <div class="single-speaker primary-shadow white-bg">
             <div class="speaker-cover">
-              <img :src="speaker.image" :alt="speaker.name" class="speaker-img"/>
+              
+              <img :src="getImageUrl(speaker.image)" :alt="speaker.name" class="speaker-img"/>
               <div class="sperker-cover-over">
                 <div class="speakers-thought">
                   <p>{{ speaker.short_description }}</p>
@@ -43,7 +44,8 @@
             </button>
           </div>
           <div class="modal-body">
-            <img :src="selectedSpeaker.image" :alt="selectedSpeaker.name" class="img-fluid mb-3" />
+
+            <img :src="getImageUrl(selectedSpeaker.image)" :alt="selectedSpeaker.name" class="img-fluid mb-3" />
             <h6>{{ selectedSpeaker.company_name }}</h6>
             <p>{{ selectedSpeaker.long_description }}</p>
             <ul class="speaker-social">
@@ -76,6 +78,9 @@ export default {
     this.fetchSpeakers();
   },
   methods: {
+    getImageUrl(imagePath) {
+      return imagePath ? `http://127.0.0.1:8000/storage/${imagePath}` : '';
+    },
     fetchSpeakers() {
       axios.get('http://127.0.0.1:8000/api/speakers')
           .then(response => {

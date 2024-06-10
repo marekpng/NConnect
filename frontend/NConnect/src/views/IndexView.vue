@@ -1,77 +1,77 @@
 <template>
   <body>
 
-  <div class="navigation-area primary-shadow">
-    <div class="top-info-bar">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="contact-info-bar">
-              <ul>
-                <li><i class="fa fa-map-marker"></i> 49 West 32nd Street, New York</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-6 text-right mobile-left">
-            <div class="contact-info-bar">
-              <ul>
-                <li><i class="fa fa-phone"></i> +02 525 486 232</li>
-                <li><i class="fa fa-envelope"></i> eelias.cse@gmail.com</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div><!-- /.container -->
-    </div><!-- /.top-info-bar -->
+<!--  <div class="navigation-area primary-shadow">-->
+<!--    <div class="top-info-bar">-->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col-sm-6">-->
+<!--            <div class="contact-info-bar">-->
+<!--              <ul>-->
+<!--                <li><i class="fa fa-map-marker"></i> 49 West 32nd Street, New York</li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-sm-6 text-right mobile-left">-->
+<!--            <div class="contact-info-bar">-->
+<!--              <ul>-->
+<!--                <li><i class="fa fa-phone"></i> +02 525 486 232</li>-->
+<!--                <li><i class="fa fa-envelope"></i> eelias.cse@gmail.com</li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; /.container &ndash;&gt;-->
+<!--    </div>&lt;!&ndash; /.top-info-bar &ndash;&gt;-->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="index.html"><img src="/images/logo.png" alt="Site Logo" /></a>
+<!--    <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--      <div class="container">-->
+<!--        &lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--          <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <a class="navbar-brand" href="index.html"><img src="/images/logo.png" alt="Site Logo" /></a>-->
 
-        <!-- Collect the nav links and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link button alt" href="price-table.html">Reserve Your Seat</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="speakers.html">Speakers</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="schedule.html">Schedule</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sponsors.html">Sponsors</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-              <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <li><a class="dropdown-item" href="about.html">About</a></li>
-                <li><a class="dropdown-item" href="accommodation.html">Accommodation</a></li>
-                <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
-                <li><a class="dropdown-item" href="price-table.html">Price Table</a></li>
-                <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
-                <li><a class="dropdown-item" href="404.html">404 Error</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container -->
-    </nav>
+<!--        &lt;!&ndash; Collect the nav links and other content for toggling &ndash;&gt;-->
+<!--        <div class="collapse navbar-collapse" id="navbar-collapse">-->
+<!--          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link button alt" href="price-table.html">Reserve Your Seat</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="index.html">Home</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="speakers.html">Speakers</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="schedule.html">Schedule</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="sponsors.html">Sponsors</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item dropdown">-->
+<!--              <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>-->
+<!--              <ul class="dropdown-menu" aria-labelledby="pagesDropdown">-->
+<!--                <li><a class="dropdown-item" href="about.html">About</a></li>-->
+<!--                <li><a class="dropdown-item" href="accommodation.html">Accommodation</a></li>-->
+<!--                <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>-->
+<!--                <li><a class="dropdown-item" href="price-table.html">Price Table</a></li>-->
+<!--                <li><a class="dropdown-item" href="blog.html">Blog</a></li>-->
+<!--                <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>-->
+<!--                <li><a class="dropdown-item" href="404.html">404 Error</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="contact.html">Contact</a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
+<!--      </div>&lt;!&ndash; /.container &ndash;&gt;-->
+<!--    </nav>-->
 
-  </div><!-- /.navigation-area -->
-
+<!--  </div>&lt;!&ndash; /.navigation-area &ndash;&gt;-->
+<Navbar />
   <div class="header-area" id="home-header">
     <div class="header-slide header-slide-1">
       <div class="overlay">
@@ -1594,4 +1594,5 @@ import Sponsors from "@/components/Sponsors.vue";
 import StageArea from "@/components/StageArea.vue";
 import Gallery from "@/components/Gallery.vue";
 import Testimonials from "@/components/Testimonials.vue";
+import Navbar from "@/components/Navbar.vue";
 </script>
