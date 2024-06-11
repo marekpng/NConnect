@@ -11,6 +11,8 @@ import ShowRegisteredUsers from "@/views/ShowRegisteredUsers.vue";
 import AboutUsManager from '@/components/AboutUsManager.vue'; // Import the new component
 import GalleryView from '@/views/GalleryView.vue'; // Import the new component
 import GalleryManager from '@/components/GalleryManager.vue'; // Import the new component
+import QuillEditor from '@/components/QuillEditor.vue';
+import CustomSiteView from "@/views/CustomSiteView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -86,7 +88,17 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
-    }
+    },
+    {
+      path: '/editor',
+      name: 'Editor',
+      component: QuillEditor // Add route for QuillEditor
+    },
+    {
+      path: '/path/:path',
+      name: 'CustomSite',
+      component: CustomSiteView, // Ensure this component exists
+    },
   ]
 });
 function isAuthenticated() {

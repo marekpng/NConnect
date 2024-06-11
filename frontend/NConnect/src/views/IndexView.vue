@@ -68,65 +68,67 @@
 
 <Testimonials />
 
-  <div class="footer-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-6">
-          <div class="single-footer-widget">
-            <a href="index.html" class="footer-logo">
-              <img src="/images/footer-logo.png" alt="logo" />
-            </a>
-            <p>Spájame IT komunity</p>
-            <ul class="footer-social">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-              <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-            </ul>
-          </div>
-        </div><!-- /.col -->
-        <div class="col-md-4 col-sm-6">
-          <div class="single-footer-widget">
-            <h4>
+<FooterComponent />
 
-
-              Študentské centrum UKF Dražovská 2, Nitra</h4>
-<!--            <form action="subscribe.php" class="subscription-form">-->
-<!--              <input type="text" placeholder="Your Email" />-->
-<!--              <input type="submit" value="go" />-->
-<!--            </form>-->
-            <h4>Fakulta prírodných vied a informatiky UKF v Nitre</h4>
-          </div>
-        </div><!-- /.col -->
-        <div class="col-md-4 col-sm-12">
-          <div class="single-footer-widget">
-            <h4>Fakulta prírodných vied a informatiky UKF v Nitre</h4>
-<!--            <ul class="gallery-list">-->
-<!--              <li><img src="/images/gallery/thumb/1.jpg" alt="gallery" /></li>-->
-<!--              <li><img src="/images/gallery/thumb/2.jpg" alt="gallery" /></li>-->
-<!--              <li><img src="/images/gallery/thumb/3.jpg" alt="gallery" /></li>-->
-<!--              <li><img src="/images/gallery/thumb/4.jpg" alt="gallery" /></li>-->
-<!--              <li><img src="/images/gallery/thumb/2.jpg" alt="gallery" /></li>-->
-<!--              <li><img src="/images/gallery/thumb/1.jpg" alt="gallery" /></li>-->
+<!--  <div class="footer-area">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-4 col-sm-6">-->
+<!--          <div class="single-footer-widget">-->
+<!--            <a href="index.html" class="footer-logo">-->
+<!--              <img src="/images/footer-logo.png" alt="logo" />-->
+<!--            </a>-->
+<!--            <p>Spájame IT komunity</p>-->
+<!--            <ul class="footer-social">-->
+<!--              <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+<!--              <li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+<!--              <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>-->
+<!--              <li><a href="#"><i class="fa fa-youtube"></i></a></li>-->
+<!--              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
+<!--              <li><a href="#"><i class="fa fa-tumblr"></i></a></li>-->
 <!--            </ul>-->
-<!--            <a href="#" class="more-image">More /images</a>-->
-          </div>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div><!-- /.container -->
-  </div><!-- /.footer-area -->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; /.col &ndash;&gt;-->
+<!--        <div class="col-md-4 col-sm-6">-->
+<!--          <div class="single-footer-widget">-->
+<!--            <h4>-->
 
-  <div class="footer-bar-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <span>Copyright 2015 . Designed By <a href="#">BestPixels</a></span>
-        </div>
-      </div>
-    </div>
-  </div><!-- /.footer-bar-area -->
+
+<!--              Študentské centrum UKF Dražovská 2, Nitra</h4>-->
+<!--&lt;!&ndash;            <form action="subscribe.php" class="subscription-form">&ndash;&gt;-->
+<!--&lt;!&ndash;              <input type="text" placeholder="Your Email" />&ndash;&gt;-->
+<!--&lt;!&ndash;              <input type="submit" value="go" />&ndash;&gt;-->
+<!--&lt;!&ndash;            </form>&ndash;&gt;-->
+<!--            <h4>Fakulta prírodných vied a informatiky UKF v Nitre</h4>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; /.col &ndash;&gt;-->
+<!--        <div class="col-md-4 col-sm-12">-->
+<!--          <div class="single-footer-widget">-->
+<!--            <h4>Fakulta prírodných vied a informatiky UKF v Nitre</h4>-->
+<!--&lt;!&ndash;            <ul class="gallery-list">&ndash;&gt;-->
+<!--&lt;!&ndash;              <li><img src="/images/gallery/thumb/1.jpg" alt="gallery" /></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li><img src="/images/gallery/thumb/2.jpg" alt="gallery" /></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li><img src="/images/gallery/thumb/3.jpg" alt="gallery" /></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li><img src="/images/gallery/thumb/4.jpg" alt="gallery" /></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li><img src="/images/gallery/thumb/2.jpg" alt="gallery" /></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li><img src="/images/gallery/thumb/1.jpg" alt="gallery" /></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#" class="more-image">More /images</a>&ndash;&gt;-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; /.col &ndash;&gt;-->
+<!--      </div>&lt;!&ndash; /.row &ndash;&gt;-->
+<!--    </div>&lt;!&ndash; /.container &ndash;&gt;-->
+<!--  </div>&lt;!&ndash; /.footer-area &ndash;&gt;-->
+
+<!--  <div class="footer-bar-area">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-12">-->
+<!--          <span>Copyright 2015 . Designed By <a href="#">BestPixels</a></span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>&lt;!&ndash; /.footer-bar-area &ndash;&gt;-->
 
 
 
@@ -148,4 +150,6 @@ import StageArea from "@/components/StageArea.vue";
 import Gallery from "@/components/Gallery.vue";
 import Testimonials from "@/components/Testimonials.vue";
 import Navbar from "@/components/Navbar.vue";
+import FooterComponent from '@/components/FooterComponent.vue';
+
 </script>

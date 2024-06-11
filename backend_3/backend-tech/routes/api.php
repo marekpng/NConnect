@@ -9,6 +9,8 @@ use App\Http\Controllers\SpeakerController;
 use App\Http\Controllers\StageUserController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\CustomSiteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -133,6 +135,13 @@ Route::get('/sponsors', [SponsorController::class, 'getAllSponsors']);
 //Route::post('/create-sponsor', [SponsorController::class, 'createSponsor']);
 //Route::put('/sponsors/{id}', [SponsorController::class, 'updateSponsor']);
 //Route::delete('/sponsors/{id}', [SponsorController::class, 'deleteSponsor']);
+
+Route::get('/custom-sites', [CustomSiteController::class, 'index']);
+Route::get('/custom-sites/{id}', [CustomSiteController::class, 'show']);
+Route::post('/custom-sites', [CustomSiteController::class, 'store']);
+Route::put('/custom-sites/{id}', [CustomSiteController::class, 'update']);
+Route::delete('/custom-sites/{id}', [CustomSiteController::class, 'destroy']);
+Route::get('/custom-sites/path/{path}', [CustomSiteController::class, 'showByPath']);
 
 
 
