@@ -1,27 +1,169 @@
+<!--<template>-->
+<!--  <div>-->
+<!--    <div class="gallery-header">-->
+<!--      <h1>Gallery</h1>-->
+<!--    </div>-->
+<!--    <div class="gallery-container">-->
+<!--      <div v-for="yearGroup in groupedGalleryItems" :key="yearGroup.year" class="year-group">-->
+<!--        <h2>{{ yearGroup.year }}</h2>-->
+<!--        <div class="gallery-year-group">-->
+<!--          <div class="gallery-item" v-for="item in yearGroup.items" :key="item.id">-->
+<!--            <img :src="item.image_link" :alt="item.description" />-->
+<!--            <p>{{ item.description }}</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</template>-->
+
+<!--<script>-->
+<!--export default {-->
+<!--  data() {-->
+<!--    return {-->
+<!--      galleryItems: [],-->
+<!--    };-->
+<!--  },-->
+<!--  computed: {-->
+<!--    groupedGalleryItems() {-->
+<!--      const grouped = {};-->
+<!--      this.galleryItems.forEach((item) => {-->
+<!--        const year = item.year;-->
+<!--        if (!grouped[year]) {-->
+<!--          grouped[year] = [];-->
+<!--        }-->
+<!--        grouped[year].push(item);-->
+<!--      });-->
+<!--      return Object.keys(grouped).map((year) => ({-->
+<!--        year,-->
+<!--        items: grouped[year],-->
+<!--      }));-->
+<!--    },-->
+<!--  },-->
+<!--  methods: {-->
+<!--    fetchGalleryItems() {-->
+<!--      fetch('http://127.0.0.1:8000/api/gallery')-->
+<!--          .then((response) => response.json())-->
+<!--          .then((data) => {-->
+<!--            this.galleryItems = data;-->
+<!--          });-->
+<!--    },-->
+<!--  },-->
+<!--  created() {-->
+<!--    this.fetchGalleryItems();-->
+<!--  },-->
+<!--};-->
+<!--</script>-->
+
+<!--<style scoped>-->
+<!--.gallery-header {-->
+<!--  text-align: center;-->
+<!--  margin: 20px 0;-->
+<!--}-->
+
+<!--.gallery-container {-->
+<!--  padding: 20px;-->
+<!--}-->
+
+<!--.year-group {-->
+<!--  margin-bottom: 40px;-->
+<!--}-->
+
+<!--.gallery-year-group {-->
+<!--  display: flex;-->
+<!--  flex-wrap: wrap;-->
+<!--  justify-content: center;-->
+<!--  gap: 20px;-->
+<!--}-->
+
+<!--.gallery-item {-->
+<!--  flex: 1 1 calc(33.333% - 40px);-->
+<!--  max-width: calc(33.333% - 40px);-->
+<!--  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);-->
+<!--  border-radius: 10px;-->
+<!--  overflow: hidden;-->
+<!--  transition: transform 0.3s;-->
+<!--}-->
+
+<!--.gallery-item:hover {-->
+<!--  transform: translateY(-10px);-->
+<!--}-->
+
+<!--.gallery-item img {-->
+<!--  width: 100%;-->
+<!--  height: auto;-->
+<!--  display: block;-->
+<!--}-->
+
+<!--.gallery-item p {-->
+<!--  padding: 10px;-->
+<!--  text-align: center;-->
+<!--}-->
+
+<!--@media (max-width: 1200px) {-->
+<!--  .gallery-item {-->
+<!--    flex: 1 1 calc(50% - 40px);-->
+<!--    max-width: calc(50% - 40px);-->
+<!--  }-->
+<!--}-->
+
+<!--@media (max-width: 768px) {-->
+<!--  .gallery-item {-->
+<!--    flex: 1 1 calc(100% - 40px);-->
+<!--    max-width: calc(100% - 40px);-->
+<!--  }-->
+<!--}-->
+<!--</style>-->
+
+
 <template>
   <div>
     <div class="gallery-header">
       <h1>Gallery</h1>
     </div>
     <div class="gallery-container">
-      <div v-for="yearGroup in groupedGalleryItems" :key="yearGroup.year" class="year-group">
-        <h2>{{ yearGroup.year }}</h2>
-        <div class="gallery-year-group">
-          <div class="gallery-item" v-for="item in yearGroup.items" :key="item.id">
-            <img :src="item.image_link" :alt="item.description" />
-            <p>{{ item.description }}</p>
+      <div v-for="yearGroup in groupedGalleryItems" :key="yearGroup.year" class="year-group" @click="openModal(yearGroup)">
+        <div class="year-box" :style="{ backgroundImage: 'url(' + yearGroup.items[0].image_link + ')' }">
+          <h2>{{ yearGroup.year }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div v-if="showModal" class="modal fade show" tabindex="-1" role="dialog" style="display: block;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ currentYear }}</h5>
+            <button type="button" class="close" @click="closeModal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div v-if="currentGalleryItems.length" class="slideshow-container">
+              <div v-for="(item, index) in currentGalleryItems" :key="index" class="mySlides" v-show="index === currentSlideIndex">
+                <img :src="item.image_link" class="img-fluid" :alt="item.description">
+                <div class="text">{{ item.description }}</div>
+              </div>
+              <a class="prev" @click="changeSlide(-1)">&#10094;</a>
+              <a class="next" @click="changeSlide(1)">&#10095;</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div v-if="showModal" class="modal-backdrop fade show"></div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
     return {
       galleryItems: [],
+      showModal: false,
+      currentYear: '',
+      currentGalleryItems: [],
+      currentSlideIndex: 0,
     };
   },
   computed: {
@@ -48,69 +190,130 @@ export default {
             this.galleryItems = data;
           });
     },
+    openModal(yearGroup) {
+      this.currentYear = yearGroup.year;
+      this.currentGalleryItems = yearGroup.items;
+      this.currentSlideIndex = 0;
+      this.showModal = true;
+    },
+    closeModal() {
+      this.showModal = false;
+    },
+    changeSlide(direction) {
+      this.currentSlideIndex += direction;
+      if (this.currentSlideIndex < 0) {
+        this.currentSlideIndex = this.currentGalleryItems.length - 1;
+      } else if (this.currentSlideIndex >= this.currentGalleryItems.length) {
+        this.currentSlideIndex = 0;
+      }
+    },
   },
   created() {
     this.fetchGalleryItems();
   },
 };
 </script>
-
 <style scoped>
 .gallery-header {
   text-align: center;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .gallery-container {
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .year-group {
-  margin-bottom: 40px;
+  width: 30%;
+  margin: 20px;
+  cursor: pointer;
+  position: relative;
 }
 
-.gallery-year-group {
+.year-box {
+  width: 100%;
+  padding-bottom: 75%;
+  background-size: cover;
+  background-position: center;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 20px;
-}
-
-.gallery-item {
-  flex: 1 1 calc(33.333% - 40px);
-  max-width: calc(33.333% - 40px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  overflow: hidden;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #000;
   transition: transform 0.3s;
 }
 
-.gallery-item:hover {
-  transform: translateY(-10px);
+.year-box:hover {
+  transform: scale(1.05);
 }
 
-.gallery-item img {
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
 }
 
-.gallery-item p {
-  padding: 10px;
+.modal.fade.show {
+  display: block;
+  opacity: 1;
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
   text-align: center;
 }
 
-@media (max-width: 1200px) {
-  .gallery-item {
-    flex: 1 1 calc(50% - 40px);
-    max-width: calc(50% - 40px);
-  }
+.mySlides img {
+  width: 100%;
 }
 
-@media (max-width: 768px) {
-  .gallery-item {
-    flex: 1 1 calc(100% - 40px);
-    max-width: calc(100% - 40px);
-  }
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 </style>

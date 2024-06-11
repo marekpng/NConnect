@@ -12,7 +12,7 @@
         <div v-for="speaker in speakers" :key="speaker.id" class="col-md-3 col-sm-6 mb30">
           <div class="single-speaker primary-shadow white-bg">
             <div class="speaker-cover">
-              
+
               <img :src="getImageUrl(speaker.image)" :alt="speaker.name" class="speaker-img"/>
               <div class="sperker-cover-over">
                 <div class="speakers-thought">
@@ -22,6 +22,7 @@
               </div>
               <ul class="speaker-social">
                 <li v-for="(link, index) in speaker.social_media_links" :key="index"><a :href="link" target="_blank"><i :class="getSocialIcon(link)"></i></a></li>
+
               </ul>
               <h6>{{ speaker.name }} at <a href="#">{{ speaker.company_name }}</a></h6>
             </div>
@@ -124,19 +125,19 @@ export default {
   opacity: 1;
 }
 
-/*.speaker-cover {*/
-/*  position: relative;*/
-/*  width: 100%;*/
-/*  padding-bottom: 75%; !* This ratio keeps the aspect ratio of the cover *!*/
-/*  overflow: hidden;*/
-/*}*/
-/*.speaker-img {*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*  object-fit: cover;*/
-/*}*/
+.speaker-cover {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* This ratio keeps the aspect ratio of the cover */
+  overflow: hidden;
+}
+.speaker-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 </style>

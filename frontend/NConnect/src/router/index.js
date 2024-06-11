@@ -65,7 +65,7 @@ const router = createRouter({
       path: '/admin/about-us',
       name: 'AboutUsManager',
       component: AboutUsManager, // Associate the route with the new component
-      meta: { requiresAuth: false }
+      meta: { requiresAuth: true }
     },
     {
       path: '/gallery',
@@ -76,7 +76,7 @@ const router = createRouter({
       path: '/admin/gallery',
       name: 'GalleryManager',
       component: GalleryManager, // Add the new route
-      meta: { requiresAuth: false }
+      meta: { requiresAuth: true }
     },
 
     {

@@ -407,12 +407,12 @@ p span{
 /* Header Area */
 
 .header-area{
-	background: url(../images/bg/header-1.jpg);
+	background: url(../assets/img/header-3.jpg);
 	background-size:cover;
 	color:#fff;
 }
 .header-slide-1{
-	background: url(../images/bg/header-1.jpg);
+	background: url(../assets/img/header-3.jpg);
 	background-size:cover;
 }
 .header-slide-2{

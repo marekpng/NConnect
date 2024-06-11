@@ -5,7 +5,7 @@
         <div class="sub-heading">
           <div class="row">
             <div class="col-md-12">
-              <h4>Testimonials</h4>
+              <h4>Povedali o nás</h4>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                     </ul>
-                    <h4>Anonymous</h4>
+                    <h4>Povedali o nás</h4>
                   </div>
                   <div class="col-sm-5">
                     <div class="client-image primary-shadow">

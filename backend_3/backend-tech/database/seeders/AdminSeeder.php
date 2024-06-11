@@ -1,13 +1,13 @@
 <?php
 
 namespace Database\Seeders;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 
-class AdminSeeder extends Seeder
+class  AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,11 +16,14 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        Admin::create([
-            'name' => 'Admin',
-            'email' => 'admin@admin',
-            'password' => Hash::make('root'),
-            'role' => 'admin',
+        DB::table('admins')->insert([
+            'name' => 'root',
+            'email' => 'root@root',
+            'password' => Hash::make('root'), // It's important to hash passwords
+            'role' => 'admin', // Default role is set to 'admin'
+            'email_verified_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }
