@@ -25,8 +25,8 @@
   <div>
     <nav class="navbar">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#">
-          MyBrand
+        <a class="navbar-item" href="/">
+          Nconnect
         </a>
         <div class="navbar-burger" @click="toggleMenu">
           <span></span>
@@ -36,9 +36,9 @@
       </div>
       <div class="navbar-menu" :class="{ 'is-active': isActive }">
         <div class="navbar-start">
-          <a class="navbar-item" href="#">Home</a>
-          <a class="navbar-item" href="#">About</a>
-          <a class="navbar-item" href="#">Contact</a>
+          <a class="navbar-item" href="/">Home</a>
+<!--          <a class="navbar-item" href="#">About</a>-->
+<!--          <a class="navbar-item" href="#">Contact</a>-->
         </div>
       </div>
     </nav>

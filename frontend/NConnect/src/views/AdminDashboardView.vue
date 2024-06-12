@@ -11,6 +11,7 @@
         <li><router-link to="/admin/show-registered-users">Zobrazenie prihlasenych uzivatelov na prednasky</router-link></li>
         <li><router-link to="/admin/about-us">CRUD said about us</router-link></li>
         <li><router-link to="/admin/gallery">CRUD Gallery</router-link></li>
+        <li><router-link to="/admin/editor">Custom sites</router-link></li>
 
       </ul>
     </nav>

@@ -1,258 +1,110 @@
+
+
+
 <template>
-<!--<AdminNavbar />-->
-
-
-
-
-
-
-
-
-<!--  &lt;!&ndash; Button to toggle the display of the form &ndash;&gt;-->
-<!--  <button @click="showForm = true">Create Sponsor</button>-->
-
-<!--  &lt;!&ndash; Form to create a new sponsor (initially hidden) &ndash;&gt;-->
-<!--  <div v-if="showForm">-->
-<!--    <h5>Create New Sponsor</h5>-->
-<!--    <form @submit.prevent="createSponsor">-->
-<!--      <div>-->
-<!--        <label for="name">Name:</label>-->
-<!--        <input type="text" id="name" v-model="newSponsor.name" required>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <label for="email">Email:</label>-->
-<!--        <input type="email" id="email" v-model="newSponsor.email" required>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <label for="phone">Phone:</label>-->
-<!--        <input type="text" id="phone" v-model="newSponsor.phone" required>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <label for="company_name">Company Name:</label>-->
-<!--        <input type="text" id="company_name" v-model="newSponsor.company_name" required>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <label for="position">Position:</label>-->
-<!--        <input type="text" id="position" v-model="newSponsor.position" required>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <label for="website_url">Website URL:</label>-->
-<!--        <input type="url" id="website_url" v-model="newSponsor.website_url" required>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <label for="sponsorship_type">Sponsorship Type:</label>-->
-<!--        <select id="sponsorship_type" v-model="newSponsor.sponsorship_type" required>-->
-<!--          <option value="gold">Gold</option>-->
-<!--          <option value="silver">Silver</option>-->
-<!--          <option value="bronze">Bronze</option>-->
-<!--        </select>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <label for="about_company">About Company:</label>-->
-<!--        <textarea id="about_company" v-model="newSponsor.about_company" required></textarea>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <label for="image_url">Image URL:</label>-->
-<!--        <input type="url" id="image_url" v-model="newSponsor.image_url" required>-->
-<!--      </div>-->
-
-<!--      <button type="submit">Submit</button>-->
-<!--    </form>-->
-<!--  </div>-->
-
-<!--  &lt;!&ndash; Display existing sponsors &ndash;&gt;-->
-<!--  <div v-for="sponsor in sponsors" :key="sponsor.id" class="sponsor">-->
-<!--    &lt;!&ndash; Sponsor details &ndash;&gt;-->
-<!--  </div>-->
-  <AdminNavbar />
-
-  <!-- Button to toggle the display of the form -->
-  <button @click="showForm = true">Create Sponsor</button>
-
-  <!-- Form to create a new sponsor (initially hidden) -->
-  <div v-if="showForm">
-    <h5>Create New Sponsor</h5>
-    <form @submit.prevent="createSponsor">
-      <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" v-model="newSponsor.name" required>
+  <AdminNavbar/>
+  <div class="container">
+    <div class="sub-heading">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>{{ isEditing ? 'Edit/Delete Sponsor' : 'Create Sponsor' }}</h4>
+        </div>
       </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="newSponsor.email" required>
+    </div>
+
+    <!-- Button to switch between creating and editing sponsors -->
+    <div class="mb-3">
+      <button @click="toggleEditMode" class="btn btn-secondary">
+        {{ isEditing ? 'Switch to Create Mode' : 'Edit/Delete Existing Sponsor' }}
+      </button>
+    </div>
+
+    <!-- Select dropdown to edit existing sponsor -->
+    <div v-if="isEditing" class="mt-5">
+      <div class="sub-heading">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Select Sponsor to Edit</h4>
+          </div>
+        </div>
       </div>
-      <div>
-        <label for="phone">Phone:</label>
-        <input type="text" id="phone" v-model="newSponsor.phone" required>
-      </div>
-      <div>
-        <label for="company_name">Company Name:</label>
-        <input type="text" id="company_name" v-model="newSponsor.company_name" required>
-      </div>
-      <div>
-        <label for="position">Position:</label>
-        <input type="text" id="position" v-model="newSponsor.position" required>
-      </div>
-      <div>
-        <label for="website_url">Website URL:</label>
-        <input type="url" id="website_url" v-model="newSponsor.website_url" required>
-      </div>
-      <div>
-        <label for="sponsorship_type">Sponsorship Type:</label>
-        <select id="sponsorship_type" v-model="newSponsor.sponsorship_type" required>
-          <option value="gold">Gold</option>
-          <option value="silver">Silver</option>
-          <option value="platinum">Platinum</option>
+      <div class="form-group">
+        <label for="existing_sponsor_id">Select Sponsor</label>
+        <select v-model="selectedSponsorId" class="form-control" @change="fetchSponsorDetails">
+          <option value="" disabled>Select a sponsor</option>
+          <option v-for="sponsor in sponsors" :key="sponsor.id" :value="sponsor.id">{{ sponsor.name }}</option>
         </select>
       </div>
-      <div>
-        <label for="about_company">About Company:</label>
-        <textarea id="about_company" v-model="newSponsor.about_company" required></textarea>
-      </div>
-      <div>
-        <label for="image">Image:</label>
-        <input type="file" id="image" @change="handleImageUpload" required>
-      </div>
+    </div>
 
-      <button type="submit">Submit</button>
+    <!-- Form for creating/editing a sponsor -->
+    <form @submit.prevent="isEditing ? updateSponsor() : createSponsor()">
+      <div class="form-group">
+        <label for="name">Sponsor Name</label>
+        <input type="text" v-model="sponsor.name" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" v-model="sponsor.email" class="form-control" id="email" required>
+      </div>
+<!--      <div class="form-group">-->
+<!--        <label for="phone">Phone</label>-->
+<!--        <input type="tel" v-model="sponsor.phone" class="form-control" id="phone" >-->
+<!--      </div>-->
+      <div class="form-group">
+        <label for="company_name">Company Name</label>
+        <input type="text" v-model="sponsor.company_name" class="form-control" id="company_name" required>
+      </div>
+      <div class="form-group">
+        <label for="position">Position</label>
+        <input type="text" v-model="sponsor.position" class="form-control" id="position" required>
+      </div>
+      <div class="form-group">
+        <label for="website_url">Website URL</label>
+        <input type="url" v-model="sponsor.website_url" class="form-control" id="website_url" required>
+      </div>
+      <div class="form-group">
+        <label for="sponsorship_type">Sponsorship Type</label>
+        <select v-model="sponsor.sponsorship_type" class="form-control" id="sponsorship_type" required>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="about_company">About Company</label>
+        <textarea v-model="sponsor.about_company" class="form-control" id="about_company" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <div v-if="sponsor.imageUrl">
+          <img :src="sponsor.imageUrl" alt="Current Image" class="img-thumbnail mb-3" style="max-width: 200px;">
+        </div>
+        <input type="file" class="form-control" id="image" accept="image/*" @change="handleImageUpload">
+      </div>
+      <button type="submit" class="btn btn-primary">{{ isEditing ? 'Update Sponsor' : 'Create Sponsor' }}</button>
+      <button v-if="isEditing" @click="deleteSponsor" class="btn btn-danger ml-2">Delete Sponsor</button>
     </form>
+
+    <!-- List of sponsors -->
+    <div v-if="!isEditing" class="mt-5">
+      <div class="sub-heading">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>List of Sponsors</h4>
+          </div>
+        </div>
+      </div>
+      <ul class="list-group">
+        <li v-for="sponsor in sponsors" :key="sponsor.id" class="list-group-item">
+          {{ sponsor.name }} - {{ sponsor.company_name }}
+          <button @click="editSponsor(sponsor.id)" class="btn btn-link">Edit</button>
+          <button @click="deleteSponsor(sponsor.id)" class="btn btn-link text-danger">Delete</button>
+        </li>
+      </ul>
+    </div>
   </div>
-
-
-
-
-
 </template>
-
-<!--<script>-->
-<!--import axios from 'axios';-->
-<!--import AdminNavbar from "@/components/AdminNavbar.vue";-->
-<!--export default {-->
-<!--  name: "CreateSponsorView",-->
-<!--  components: {AdminNavbar},-->
-<!--  data() {-->
-<!--    return {-->
-<!--      sponsors: [], // Existing sponsors-->
-<!--      newSponsor: {  // New sponsor object to be created-->
-<!--        name: '',-->
-<!--        email: '',-->
-<!--        phone: '',-->
-<!--        company_name: '',-->
-<!--        position: '',-->
-<!--        website_url: '',-->
-<!--        sponsorship_type: 'gold', // Default value-->
-<!--        about_company: '',-->
-<!--        image_url: ''-->
-<!--      },-->
-<!--      showForm: false // Flag to show/hide the form-->
-<!--    };-->
-<!--  },-->
-<!--  mounted() {-->
-<!--    axios.get('http://127.0.0.1:8000/api/sponsors')-->
-<!--        .then(response => {-->
-<!--          console.log(response.data);-->
-<!--          this.sponsors = response.data;-->
-<!--        })-->
-<!--        .catch(error => {-->
-<!--          console.error('Error fetching sponsors:', error);-->
-<!--        });-->
-<!--  },-->
-<!--  methods: {-->
-<!--    // Method to create a new sponsor-->
-<!--    // createSponsor() {-->
-<!--    //   const headers = {-->
-<!--    //     'Accept': 'application/json',-->
-<!--    //     'Authorization': `Bearer ${localStorage.getItem('adminToken')}`-->
-<!--    //   };-->
-<!--    //   // Create FormData object to send file along with other data-->
-<!--    //   let formData = new FormData();-->
-<!--    //   formData.append('name', this.newSponsor.name);-->
-<!--    //   formData.append('email', this.newSponsor.email);-->
-<!--    //   formData.append('phone', this.newSponsor.phone);-->
-<!--    //   formData.append('company_name', this.newSponsor.company_name);-->
-<!--    //   formData.append('position', this.newSponsor.position);-->
-<!--    //   formData.append('website_url', this.newSponsor.website_url);-->
-<!--    //   formData.append('sponsorship_type', this.newSponsor.sponsorship_type);-->
-<!--    //   formData.append('about_company', this.newSponsor.about_company);-->
-<!--    //   formData.append('image', this.newSponsor.image); // Append image file-->
-<!--    //-->
-<!--    //   axios.post('http://127.0.0.1:8000/api/create-sponsor', formData, {headers})-->
-<!--    //       .then(response => {-->
-<!--    //         // Log the response or handle it as needed-->
-<!--    //         console.log(response.data);-->
-<!--    //         // Optionally, reset the form and hide it after successful creation-->
-<!--    //         this.newSponsor = {-->
-<!--    //           name: '',-->
-<!--    //           email: '',-->
-<!--    //           phone: '',-->
-<!--    //           company_name: '',-->
-<!--    //           position: '',-->
-<!--    //           website_url: '',-->
-<!--    //           sponsorship_type: 'gold',-->
-<!--    //           about_company: '',-->
-<!--    //           image_url: ''-->
-<!--    //         };-->
-<!--    //         this.showForm = false; // Hide the form-->
-<!--    //       })-->
-<!--    //       .catch(error => {-->
-<!--    //         // Check for unauthorized error-->
-<!--    //         if (error.response && error.response.status === 401) {-->
-<!--    //           console.error('Unauthorized. Please log in.');-->
-<!--    //         } else {-->
-<!--    //           console.error('Error creating sponsor:', error);-->
-<!--    //         }-->
-<!--    //       });-->
-<!--    createSponsor() {-->
-<!--      const headers = {-->
-<!--        'Accept': 'application/json',-->
-<!--        'Authorization': `Bearer ${localStorage.getItem('adminToken')}` // Include token in headers-->
-<!--      };-->
-<!--      // Create FormData object to send file along with other data-->
-<!--      let formData = new FormData();-->
-<!--      formData.append('name', this.newSponsor.name);-->
-<!--      formData.append('email', this.newSponsor.email);-->
-<!--      formData.append('phone', this.newSponsor.phone);-->
-<!--      formData.append('company_name', this.newSponsor.company_name);-->
-<!--      formData.append('position', this.newSponsor.position);-->
-<!--      formData.append('website_url', this.newSponsor.website_url);-->
-<!--      formData.append('sponsorship_type', this.newSponsor.sponsorship_type);-->
-<!--      formData.append('about_company', this.newSponsor.about_company);-->
-<!--      formData.append('image', this.newSponsor.image); // Append image file-->
-
-<!--      axios.post('http://127.0.0.1:8000/api/create-sponsor', formData, { headers })-->
-<!--          .then(response => {-->
-<!--            // Log the response or handle it as needed-->
-<!--            console.log(response.data);-->
-<!--            // Optionally, reset the form and hide it after successful creation-->
-<!--            this.newSponsor = {-->
-<!--              name: '',-->
-<!--              email: '',-->
-<!--              phone: '',-->
-<!--              company_name: '',-->
-<!--              position: '',-->
-<!--              website_url: '',-->
-<!--              sponsorship_type: 'gold',-->
-<!--              about_company: '',-->
-<!--              image_url: ''-->
-<!--            };-->
-<!--            this.showForm = false; // Hide the form-->
-<!--            // Fetch sponsors again to update the list after creating a new one-->
-<!--            this.fetchSponsors();-->
-<!--          })-->
-<!--          .catch(error => {-->
-<!--            // Check for unauthorized error-->
-<!--            if (error.response && error.response.status === 401) {-->
-<!--              console.error('Unauthorized. Please log in.');-->
-<!--            } else {-->
-<!--              console.error('Error creating sponsor:', error);-->
-<!--            }-->
-<!--          });-->
-<!--    },-->
-
-<!--  }-->
-<!--}-->
-<!--</script>-->
-
 
 <script>
 import axios from 'axios';
@@ -264,18 +116,20 @@ export default {
   data() {
     return {
       sponsors: [], // Existing sponsors
-      newSponsor: {  // New sponsor object to be created
+      sponsor: {  // New sponsor object to be created/edited
         name: '',
         email: '',
-        phone: '',
+        phone: null,
         company_name: '',
         position: '',
         website_url: '',
         sponsorship_type: 'gold', // Default value
         about_company: '',
-        image: null // Image file
+        image: null, // Image file
+        imageUrl: '' // URL for the current image
       },
-      showForm: false // Flag to show/hide the form
+      selectedSponsorId: '', // ID of the selected sponsor
+      isEditing: false // Flag to switch between create and edit mode
     };
   },
   mounted() {
@@ -285,7 +139,6 @@ export default {
     fetchSponsors() {
       axios.get('http://127.0.0.1:8000/api/sponsors')
           .then(response => {
-            console.log(response.data);
             this.sponsors = response.data;
           })
           .catch(error => {
@@ -293,7 +146,7 @@ export default {
           });
     },
     handleImageUpload(event) {
-      this.newSponsor.image = event.target.files[0];
+      this.sponsor.image = event.target.files[0];
     },
     createSponsor() {
       const headers = {
@@ -303,49 +156,145 @@ export default {
 
       // Create FormData object to send file along with other data
       let formData = new FormData();
-      formData.append('name', this.newSponsor.name);
-      formData.append('email', this.newSponsor.email);
-      formData.append('phone', this.newSponsor.phone);
-      formData.append('company_name', this.newSponsor.company_name);
-      formData.append('position', this.newSponsor.position);
-      formData.append('website_url', this.newSponsor.website_url);
-      formData.append('sponsorship_type', this.newSponsor.sponsorship_type);
-      formData.append('about_company', this.newSponsor.about_company);
-      formData.append('image', this.newSponsor.image); // Append image file
+      for (const key in this.sponsor) {
+        if (key !== 'imageUrl') { // Exclude imageUrl from FormData
+          formData.append(key, this.sponsor[key]);
+        }
+      }
 
-      axios.post('http://127.0.0.1:8000/api/create-sponsor', formData, { headers })
+      axios.post('http://127.0.0.1:8000/api/sponsors', formData, { headers })
           .then(response => {
-            // Log the response or handle it as needed
-            console.log(response.data);
-            // Optionally, reset the form and hide it after successful creation
-            this.newSponsor = {
-              name: '',
-              email: '',
-              phone: '',
-              company_name: '',
-              position: '',
-              website_url: '',
-              sponsorship_type: 'gold',
-              about_company: '',
-              image: null
-            };
-            this.showForm = false; // Hide the form
-            // Fetch sponsors again to update the list after creating a new one
+            alert('Sponsor created successfully!');
+            this.resetForm();
             this.fetchSponsors();
           })
           .catch(error => {
-            // Check for unauthorized error
-            if (error.response && error.response.status === 401) {
-              console.error('Unauthorized. Please log in.');
-            } else {
-              console.error('Error creating sponsor:', error);
-            }
+            console.error('Error creating sponsor:', error);
           });
+    },
+    updateSponsor() {
+      const headers = {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+      };
+
+      // Check if the image has been changed
+      if (this.sponsor.image instanceof File) {
+        // Use POST request to handle the image upload and update the sponsor details
+        const formData = new FormData();
+        for (const key in this.sponsor) {
+          if (key !== 'imageUrl') { // Exclude imageUrl from FormData
+            formData.append(key, this.sponsor[key]);
+          }
+        }
+
+        axios.post(`http://127.0.0.1:8000/api/sponsors/${this.selectedSponsorId}`, formData, { headers })
+            .then(response => {
+              alert('Sponsor updated successfully!');
+              this.resetForm();
+              this.isEditing = false;
+              this.fetchSponsors();
+            })
+            .catch(error => {
+              console.error('Error updating sponsor:', error);
+            });
+      } else {
+        // Use PUT request to update the sponsor details without the image
+        const sponsorData = { ...this.sponsor };
+        delete sponsorData.image; // Remove image property
+
+        axios.put(`http://127.0.0.1:8000/api/sponsors/${this.selectedSponsorId}`, sponsorData, { headers })
+            .then(response => {
+              alert('Sponsor updated successfully!');
+              this.resetForm();
+              this.isEditing = false;
+              this.fetchSponsors();
+            })
+            .catch(error => {
+              console.error('Error updating sponsor:', error);
+            });
+      }
+    },
+    deleteSponsor(id) {
+      if (!confirm('Are you sure you want to delete this sponsor?')) return;
+
+      const headers = {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+      };
+
+      axios.delete(`http://127.0.0.1:8000/api/sponsors/${id}`, { headers })
+          .then(response => {
+            alert('Sponsor deleted successfully!');
+            this.fetchSponsors();
+          })
+          .catch(error => {
+            console.error('Error deleting sponsor:', error);
+          });
+    },
+    fetchSponsorDetails() {
+      if (!this.selectedSponsorId) return;
+
+      const headers = {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+      };
+
+      axios.get(`http://127.0.0.1:8000/api/sponsors/${this.selectedSponsorId}`, { headers })
+          .then(response => {
+            this.sponsor = response.data;
+            this.sponsor.imageUrl = `http://127.0.0.1:8000/storage/${this.sponsor.image}`;
+          })
+          .catch(error => {
+            console.error('Error fetching sponsor details:', error);
+          });
+    },
+    editSponsor(id) {
+      this.isEditing = true;
+      this.selectedSponsorId = id;
+      this.fetchSponsorDetails();
+    },
+    toggleEditMode() {
+      this.isEditing = !this.isEditing;
+      if (!this.isEditing) {
+        this.resetForm();
+      }
+    },
+    resetForm() {
+      this.sponsor = {
+        name: '',
+        email: '',
+        phone: '',
+        company_name: '',
+        position: '',
+        website_url: '',
+        sponsorship_type: 'gold',
+        about_company: '',
+        image: null,
+        imageUrl: '' // Reset imageUrl
+      };
+      this.selectedSponsorId = '';
     }
   }
 };
 </script>
 
 <style scoped>
-
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.sub-heading {
+  margin-bottom: 20px;
+}
+.mb-3 {
+  margin-bottom: 1rem;
+}
+.mt-5 {
+  margin-top: 50px;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
 </style>

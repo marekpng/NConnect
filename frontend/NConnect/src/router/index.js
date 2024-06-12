@@ -80,6 +80,12 @@ const router = createRouter({
       component: GalleryManager, // Add the new route
       meta: { requiresAuth: true }
     },
+    {
+      path: '/admin/editor',
+      name: 'Editor',
+      component: QuillEditor, // Add the new route
+      meta: { requiresAuth: true }
+    },
 
     {
       path: '/about',
@@ -89,11 +95,11 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
     },
-    {
-      path: '/editor',
-      name: 'Editor',
-      component: QuillEditor // Add route for QuillEditor
-    },
+    // {
+    //   path: '/editor',
+    //   name: 'Editor',
+    //   component: QuillEditor // Add route for QuillEditor
+    // },
     {
       path: '/path/:path',
       name: 'CustomSite',

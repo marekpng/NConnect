@@ -8,7 +8,7 @@
               <a href="index.html" class="footer-logo">
                 <img src="/images/footer-logo.png" alt="logo" />
               </a>
-              <p>Evemat is a Responsive HTML Event Template based on material design language invented by Google.</p>
+              <p>Spájame IT komunity.</p>
               <ul class="footer-social">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -21,26 +21,26 @@
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="single-footer-widget">
-              <h4>Subscribe Me!</h4>
-              <form action="subscribe.php" class="subscription-form">
-                <input type="text" placeholder="Your Email" />
-                <input type="submit" value="go" />
-              </form>
-              <p>Your Information is safe with us.</p>
+              <h4>Študentské centrum UKF Dražovská 2, Nitra</h4>
+<!--              <form action="subscribe.php" class="subscription-form">-->
+<!--                <input type="text" placeholder="Your Email" />-->
+<!--                <input type="submit" value="go" />-->
+<!--              </form>-->
+              <p>info@nconnect.sk</p>
             </div>
           </div>
           <div class="col-md-4 col-sm-12">
             <div class="single-footer-widget">
-              <h4>MINI Gallery</h4>
-              <ul class="gallery-list">
-                <li><img src="/images/gallery/thumb/1.jpg" alt="gallery" /></li>
-                <li><img src="/images/gallery/thumb/2.jpg" alt="gallery" /></li>
-                <li><img src="/images/gallery/thumb/3.jpg" alt="gallery" /></li>
-                <li><img src="/images/gallery/thumb/4.jpg" alt="gallery" /></li>
-                <li><img src="/images/gallery/thumb/2.jpg" alt="gallery" /></li>
-                <li><img src="/images/gallery/thumb/1.jpg" alt="gallery" /></li>
-              </ul>
-              <a href="#" class="more-image">More /images</a>
+              <h4>Fakulta prírodných vied a informatiky UKF v Nitre</h4>
+<!--              <ul class="gallery-list">-->
+<!--                <li><img src="/images/gallery/thumb/1.jpg" alt="gallery" /></li>-->
+<!--                <li><img src="/images/gallery/thumb/2.jpg" alt="gallery" /></li>-->
+<!--                <li><img src="/images/gallery/thumb/3.jpg" alt="gallery" /></li>-->
+<!--                <li><img src="/images/gallery/thumb/4.jpg" alt="gallery" /></li>-->
+<!--                <li><img src="/images/gallery/thumb/2.jpg" alt="gallery" /></li>-->
+<!--                <li><img src="/images/gallery/thumb/1.jpg" alt="gallery" /></li>-->
+<!--              </ul>-->
+<!--              <a href="#" class="more-image">More /images</a>-->
             </div>
             <div class="single-footer-widget">
               <h4>Custom Sites</h4>

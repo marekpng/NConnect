@@ -27,37 +27,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::post('/test-post', [TestController::class, 'testPost']);
-//Route::post('/test-file', [TestController::class, 'testFile']);
-//Route::get('/get-user/{id}', [TestController::class, 'findUserById']);
-//Route::post('/save-user', [TestController::class, 'createUser']);
-//Route::post('/add-user-addr', [TestController::class, 'addUserAddress']);
-//Route::post('/get-user-by-phone', [TestController::class, 'findUserByPhone']);
-//Route::delete('/delete-user/{id}', [TestController::class, 'deleteUser']);
-//Route::patch('/update-user/{id}', [TestController::class, 'updateUser']);
-//Route::post('/show-request', [TestController::class, 'getRequestData'])
-//    ->middleware(['time']);
-
-//PUBLIC
-//SPONSORS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//Route::get('/sponsors', [\App\Http\Controllers\SponsorController::class, 'getAllSponsors']);
-//Route::get('/sponsors', [\App\Http\Controllers\SponsorController::class, 'getAllSponsors']);
-
-//Route::post('/create-sponsor', [\App\Http\Controllers\SponsorController::class, 'createSponsor']);
-
-//Route::group(['middleware' => ['auth:function']], function () {
-//    Route::post('/create-sponsor', [\App\Http\Controllers\SponsorController::class, 'createSponsor']);
-//
-//});
-//Route::middleware('auth:sanctum')->post('/create-sponsor', [\App\Http\Controllers\SponsorController::class, 'createSponsor']);
-
 //PROTECTED
 Route::middleware('auth:sanctum')->group(function () {
 //    SPONSORS
-    Route::post('/create-sponsor', [SponsorController::class, 'createSponsor']);
+//    Route::post('/create-sponsor', [SponsorController::class, 'createSponsor']);
+    Route::get('/sponsors', [SponsorController::class, 'getAllSponsors']);
+    Route::get('/sponsors/{id}', [SponsorController::class, 'getSponsor']);
+    Route::post('/sponsors', [SponsorController::class, 'createSponsor']);
+    Route::post('/sponsors/{id}', [SponsorController::class, 'updateSponsor']);
+    Route::put('/sponsors/{id}', [SponsorController::class, 'updateSponsor']);
+    Route::delete('/sponsors/{id}', [SponsorController::class, 'deleteSponsor']);
 
 
-
+//    LOGOUT ADMIN
     Route::post('/logout', [\App\Http\Controllers\AdminAuthController::class, 'logout']);
 
     // You can add more routes here that need authentication
@@ -66,6 +48,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/', [StageController::class, 'store']);
         Route::get('/{stage}', [StageController::class, 'show']);
         Route::put('/{stage}', [StageController::class, 'update']);
+        Route::post('/{stage}', [StageController::class, 'update']);
         Route::delete('/{stage}', [StageController::class, 'destroy']);
     });
 
@@ -75,6 +58,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::post('/', [SpeakerController::class, 'store']);
         Route::put('/{speaker}', [SpeakerController::class, 'update']);
+        Route::post('/{speaker}', [SpeakerController::class, 'update']);
         Route::delete('/{id}', [SpeakerController::class, 'destroy']);
 
     });
@@ -94,9 +78,17 @@ Route::middleware('auth:sanctum')->group(function () {
     //Zobraz prihlasenych uzivatelov
     Route::get('/stage-users', [StageUserController::class, 'getStageUsers']);
 
+
+//    CUSTOM SITES
+    Route::post('/custom-sites', [CustomSiteController::class, 'store']);
+    Route::put('/custom-sites/{id}', [CustomSiteController::class, 'update']);
+    Route::delete('/custom-sites/{id}', [CustomSiteController::class, 'destroy']);
 });
 
     Route::get('stages/', [StageController::class, 'index']);
+
+
+
     Route::post('/register', [\App\Http\Controllers\AdminAuthController::class, 'register']);
     Route::post('/login', [\App\Http\Controllers\AdminAuthController::class, 'login']);
 
@@ -132,16 +124,14 @@ Route::get('/gallery/{id}', [GalleryController::class, 'show']);
 
 //SPONSORS TEST
 Route::get('/sponsors', [SponsorController::class, 'getAllSponsors']);
-//Route::post('/create-sponsor', [SponsorController::class, 'createSponsor']);
-//Route::put('/sponsors/{id}', [SponsorController::class, 'updateSponsor']);
-//Route::delete('/sponsors/{id}', [SponsorController::class, 'deleteSponsor']);
+
 
 Route::get('/custom-sites', [CustomSiteController::class, 'index']);
 Route::get('/custom-sites/{id}', [CustomSiteController::class, 'show']);
-Route::post('/custom-sites', [CustomSiteController::class, 'store']);
-Route::put('/custom-sites/{id}', [CustomSiteController::class, 'update']);
-Route::delete('/custom-sites/{id}', [CustomSiteController::class, 'destroy']);
 Route::get('/custom-sites/path/{path}', [CustomSiteController::class, 'showByPath']);
+
+
+
 
 
 
