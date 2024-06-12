@@ -38,7 +38,7 @@ Administrátor musí vedieť vykonávať CRUD operácie nad sekciou Povedali o n
 Administrátor musí vedieť za pomoci WYSIWYG editora vytvárať custom stránky - príklad Ochrana osobných údajov
 Všetky obsahové sekcie ktoré administrátor vie vytvoriť musia byť prístupné pre používateľov
 
-
+ALL DONE
 
 
 
