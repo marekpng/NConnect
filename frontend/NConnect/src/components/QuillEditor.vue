@@ -12,6 +12,7 @@
     <div class="editor-actions">
       <button @click="saveContent">Save Content</button>
       <button @click="updateContent">Update Content</button>
+      <button @click="deleteContent">Delete Content</button>
     </div>
   </div>
 </template>
@@ -119,14 +120,14 @@ export default {
         });
 
         if (response.ok) {
-          console.log('Content saved successfully');
+          alert('Content saved successfully');
           await fetchSites(); // Refresh the list of sites
         } else {
           const errorText = await response.text();
-          console.error('Failed to save content:', response.status, errorText);
+          alert('Failed to save content: ' + errorText);
         }
       } catch (error) {
-        console.error('Error saving content:', error);
+        alert('Error saving content: ' + error.message);
       }
     };
 
@@ -151,14 +152,42 @@ export default {
         });
 
         if (response.ok) {
-          console.log('Content updated successfully');
+          alert('Content updated successfully');
           await fetchSites(); // Refresh the list of sites
         } else {
           const errorText = await response.text();
-          console.error('Failed to update content:', response.status, errorText);
+          alert('Failed to update content: ' + errorText);
         }
       } catch (error) {
-        console.error('Error updating content:', error);
+        alert('Error updating content: ' + error.message);
+      }
+    };
+
+    const deleteContent = async () => {
+      if (!selectedSiteId.value) {
+        alert('Please select a site to delete.');
+        return;
+      }
+
+      try {
+        const response = await fetch(`http://127.0.0.1:8000/api/custom-sites/${selectedSiteId.value}`, {
+          method: 'DELETE',
+        });
+
+        if (response.ok) {
+          alert('Content deleted successfully');
+          await fetchSites(); // Refresh the list of sites
+          // Clear the editor and inputs
+          quill.value.root.innerHTML = '';
+          siteName.value = '';
+          sitePath.value = '';
+          selectedSiteId.value = '';
+        } else {
+          const errorText = await response.text();
+          alert('Failed to delete content: ' + errorText);
+        }
+      } catch (error) {
+        alert('Error deleting content: ' + error.message);
       }
     };
 
@@ -179,10 +208,10 @@ export default {
           console.log('Content loaded successfully');
         } else {
           const errorText = await response.text();
-          console.error('Failed to load content:', response.status, errorText);
+          alert('Failed to load content: ' + errorText);
         }
       } catch (error) {
-        console.error('Error loading content:', error);
+        alert('Error loading content: ' + error.message);
       }
     };
 
@@ -194,6 +223,7 @@ export default {
       quillEditor,
       saveContent,
       updateContent,
+      deleteContent,
       loadContent,
     };
   },
