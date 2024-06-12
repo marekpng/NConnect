@@ -19,7 +19,7 @@
                   href="#"
                   @click.prevent="displayTestimonial(index)"
               >
-                <img :src="testimonial.image_link" alt="client" @error="onImageError" />
+                <img  :src="testimonial.image_link"  class="client-thumbnail" alt="client" @error="onImageError" />
               </a>
             </div>
           </div>
@@ -107,5 +107,23 @@ export default {
   margin-top: 20px;
   font-size: 1.2em;
   color: #aaa;
+}
+
+
+.client-thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+
+  margin: 5px;
+  cursor: pointer;
+}
+
+.client-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
 }
 </style>

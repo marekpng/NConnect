@@ -75,7 +75,7 @@ export default {
 .sponsor-image {
   width: 100%;
   height: 300px; /* Set a fixed height */
-  object-fit: cover; /* Scale the image to cover the entire box */
+  object-fit: contain; /* Scale the image to cover the entire box */
 
 }
 </style>

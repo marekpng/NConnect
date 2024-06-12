@@ -30,7 +30,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //PROTECTED
 Route::middleware('auth:sanctum')->group(function () {
 //    SPONSORS
-//    Route::post('/create-sponsor', [SponsorController::class, 'createSponsor']);
     Route::get('/sponsors', [SponsorController::class, 'getAllSponsors']);
     Route::get('/sponsors/{id}', [SponsorController::class, 'getSponsor']);
     Route::post('/sponsors', [SponsorController::class, 'createSponsor']);
@@ -42,7 +41,7 @@ Route::middleware('auth:sanctum')->group(function () {
 //    LOGOUT ADMIN
     Route::post('/logout', [\App\Http\Controllers\AdminAuthController::class, 'logout']);
 
-    // You can add more routes here that need authentication
+
 
     Route::prefix('stages')->group(function () {
         Route::post('/', [StageController::class, 'store']);
@@ -88,16 +87,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/register', [\App\Http\Controllers\AdminAuthController::class, 'register']);
 
 });
-
+//STAGE
     Route::get('stages/', [StageController::class, 'index']);
 
-
-
-//    Route::post('/register', [\App\Http\Controllers\AdminAuthController::class, 'register']);
     Route::post('/login', [\App\Http\Controllers\AdminAuthController::class, 'login']);
 
-//Route::get('/get-stages', [\App\Http\Controllers\StageController::class, 'index']);
-//STAGE
+
+
 
 
 //SPEAKERS PROFILE

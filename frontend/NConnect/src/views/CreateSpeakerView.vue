@@ -209,7 +209,7 @@ export default {
             })
             .catch(error => {
               console.error('Error updating speaker:', error);
-              alert('Failed to update speaker. Please try again.');
+              // alert('Failed to update speaker. Please try again.');
             });
       }
     },

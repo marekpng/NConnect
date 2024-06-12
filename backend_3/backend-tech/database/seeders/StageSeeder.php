@@ -36,7 +36,7 @@ class StageSeeder extends Seeder
             'capacity' => 100,
         ]);
 
-        $imageContent = file_get_contents('https://nconnect.sk/images/speakers/uniqua.jpg');
+        $imageContent = file_get_contents('https://nconnect.sk/images/speakers/muziker.jpg');
          $imageName = 'stage2.jpg';
         Storage::disk('public')->put('images/' . $imageName, $imageContent);
         $imagePath = 'images/' . $imageName;

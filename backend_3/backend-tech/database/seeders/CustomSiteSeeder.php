@@ -15,15 +15,10 @@ class CustomSiteSeeder extends Seeder
     public function run()
     {
         CustomSite::create([
-            'name' => 'Test Site',
-            'myFile' => '<h1>Welcome to the Test Site</h1><p>This is a test content.</p>',
-            'path' => 'test-site',
+            'name' => 'Ochrana osobných údajov',
+            'myFile' => '<h1>Ochrana osobnych udajov !</h1><p>toto je content ochrany osobnych udajov</p>',
+             'path' => 'gdpr'
         ]);
 
-        CustomSite::create([
-            'name' => 'Another Test Site',
-            'myFile' => '<h1>Welcome to Another Test Site</h1><p>This is another test content.</p>',
-            'path' => 'another-test-site',
-        ]);
     }
 }

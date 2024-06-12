@@ -38,12 +38,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-//Route::get('/admin/login', 'AdminAuthController@showLoginForm')->name('admin.login');
-//Route::get('/admin/login', [\App\Http\Controllers\AdminAuthController::class, 'showLoginForm'])->name('admin.login');
-//Route::post('/admin/login', [\App\Http\Controllers\AdminAuthController::class, 'login']);
 
-
-//Route::post('/admin/login', 'AdminAuthController@login');
 
 
 

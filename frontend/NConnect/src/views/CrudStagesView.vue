@@ -191,7 +191,7 @@ export default {
             })
             .catch(error => {
               console.error('Error updating stage:', error);
-              alert('Failed to update stage. Please try again.');
+              // alert('Failed to update stage. Please try again.');
             });
       } else {
         // Use PUT request to update the stage details without the image
@@ -207,7 +207,7 @@ export default {
             })
             .catch(error => {
               console.error('Error updating stage:', error);
-              alert('Failed to update stage. Please try again.');
+              // alert('Failed to update stage. Please try again.');
             });
       }
     },
