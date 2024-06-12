@@ -45,8 +45,12 @@ export default {
   },
   methods: {
     async registerAdmin() {
+      const headers = {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+      };
       try {
-        const response = await axios.post("http://127.0.0.1:8000/api/register", this.formData);
+        const response = await axios.post("http://127.0.0.1:8000/api/register", this.formData, {headers});
         // Handle successful registration
         console.log("Admin registered successfully:", response.data);
         await router.push({name: 'Admin'});

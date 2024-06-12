@@ -39,29 +39,13 @@ Route::middleware('auth')->group(function () {
 
 
 //Route::get('/admin/login', 'AdminAuthController@showLoginForm')->name('admin.login');
-Route::get('/admin/login', [\App\Http\Controllers\AdminAuthController::class, 'showLoginForm'])->name('admin.login');
-Route::post('/admin/login', [\App\Http\Controllers\AdminAuthController::class, 'login']);
+//Route::get('/admin/login', [\App\Http\Controllers\AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+//Route::post('/admin/login', [\App\Http\Controllers\AdminAuthController::class, 'login']);
 
 
 //Route::post('/admin/login', 'AdminAuthController@login');
 
 
-//Route::post('/stages/{stage}/send-signin-link', [StageUserController::class, 'sendSignInLink'])->name('stages.sendSigninLink');
-//Route::post('/stages/{stage}/send-signout-link', [StageUserController::class, 'sendSignOutLink'])->name('stages.sendSignoutLink');
-
-//Route::get('/stages/{stage}/signin/{user}', [StageUserController::class, 'signIn'])->name('stages.signin');
-//Route::get('/stages/{stage}/signout/{user}', [StageUserController::class, 'signOut'])->name('stages.signout');
-
-//Route::get('/stage-users', [StageUserController::class, 'getStageUsers']);
-
-
-
-
-//Route::get('/gallery', [GalleryController::class, 'index']);
-//Route::get('/gallery/{id}', [GalleryController::class, 'show']);
-//Route::post('/gallery', [GalleryController::class, 'store']);
-//Route::put('/gallery/{id}', [GalleryController::class, 'update']);
-//Route::delete('/gallery/{id}', [GalleryController::class, 'destroy']);
 
 
 require __DIR__.'/auth.php';

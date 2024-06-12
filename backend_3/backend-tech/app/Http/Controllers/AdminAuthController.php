@@ -39,19 +39,7 @@ class AdminAuthController extends Controller
         return view('admin.login'); // You should create this view
     }
 
-    // Handle admin login
-//    public function login(Request $request)
-//    {
-//        $credentials = $request->only('email', 'password');
-//
-//        if (Auth::guard('admin')->attempt($credentials)) {
-//            // Authentication passed...
-//            return redirect()->intended('/admin/dashboard'); // Redirect to admin dashboard or any other page
-//        }
-//
-//        // Authentication failed...
-//        return back()->withErrors(['email' => 'Invalid credentials']);
-//    }
+
     public function login(Request $request) {
         $fields = $request->validate([
             'email' => 'required|string',

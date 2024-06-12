@@ -1,6 +1,3 @@
-
-
-
 <template>
   <AdminNavbar/>
   <div class="container">

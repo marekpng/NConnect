@@ -83,13 +83,17 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/custom-sites', [CustomSiteController::class, 'store']);
     Route::put('/custom-sites/{id}', [CustomSiteController::class, 'update']);
     Route::delete('/custom-sites/{id}', [CustomSiteController::class, 'destroy']);
+
+//REGISTER NEW ADMIN
+    Route::post('/register', [\App\Http\Controllers\AdminAuthController::class, 'register']);
+
 });
 
     Route::get('stages/', [StageController::class, 'index']);
 
 
 
-    Route::post('/register', [\App\Http\Controllers\AdminAuthController::class, 'register']);
+//    Route::post('/register', [\App\Http\Controllers\AdminAuthController::class, 'register']);
     Route::post('/login', [\App\Http\Controllers\AdminAuthController::class, 'login']);
 
 //Route::get('/get-stages', [\App\Http\Controllers\StageController::class, 'index']);
@@ -125,7 +129,7 @@ Route::get('/gallery/{id}', [GalleryController::class, 'show']);
 //SPONSORS TEST
 Route::get('/sponsors', [SponsorController::class, 'getAllSponsors']);
 
-
+//CUSTOM SITES
 Route::get('/custom-sites', [CustomSiteController::class, 'index']);
 Route::get('/custom-sites/{id}', [CustomSiteController::class, 'show']);
 Route::get('/custom-sites/path/{path}', [CustomSiteController::class, 'showByPath']);
