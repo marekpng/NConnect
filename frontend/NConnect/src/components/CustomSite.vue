@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 export default {
@@ -14,10 +14,8 @@ export default {
 
     const fetchSiteContent = async () => {
       const path = route.params.path;
-
       try {
         const response = await fetch(`http://127.0.0.1:8000/api/custom-sites/path/${path}`);
-
         if (response.ok) {
           const data = await response.json();
           const decodedMyFile = decodeURIComponent(escape(data.myFile));
@@ -31,6 +29,9 @@ export default {
     };
 
     onMounted(fetchSiteContent);
+
+    // Watch for route changes and fetch new content
+    watch(route, fetchSiteContent);
 
     return {
       content,
